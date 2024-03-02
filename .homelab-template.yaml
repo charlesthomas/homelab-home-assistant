@@ -26,7 +26,7 @@ pvc: true
 pvcAccessMode: ReadWriteOnce
 pvcName: home-assistant
 pvcSize: 50Gi
-pvcStorageClass: longhorn-retain
+pvcStorageClass: longhorn
 reloader: true
 resources:
 - configmaps.yaml
