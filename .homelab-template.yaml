@@ -1,6 +1,6 @@
-_commit: v1.5.1
+_commit: v1.5.1-5-g38b9ff5
 _src_path: /home/crthomas/code/charlesthomas/homelab-template
-additionalResources: 'automations.yaml'
+additionalResources: automations.yaml
 backups: false
 helm: false
 homepageDescription: Home Automator
@@ -17,7 +17,9 @@ ingPathType: Prefix
 ingSecret: ''
 ingWebSockets: true
 ingress: true
-labels: 'app: home-assistant'
+labels: |-
+  app.kubernetes.io/name: home-assistant
+  app.kubernetes.io/instance: home-assistant
 name: home-assistant
 namespace: home-assistant
 pvc: true
@@ -27,7 +29,6 @@ pvcSize: 50Gi
 pvcStorageClass: longhorn-retain
 reloader: true
 resources:
-- automations.yaml
 - configmaps.yaml
 - deployments.yaml
 - external-secrets.yaml
@@ -40,7 +41,9 @@ svcName: home-assistant
 svcPortName: http
 svcPortNum: 8123
 svcProtocol: TCP
-svcSelector: 'app: home-assistant'
+svcSelector: |-
+  app.kubernetes.io/name: home-assistant
+  app.kubernetes.io/instance: home-assistant
 svcTargetPort: http
 svcType: ClusterIP
 upstreamURL: https://home-assistant.io
