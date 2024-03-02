@@ -6,7 +6,6 @@ namespace: home-assistant
 commonAnnotations:
   repo: https://github.com/charlesthomas/homelab-home-assistant
 commonLabels:
-  app: home-assistant
   app.kubernetes.io/name: home-assistant
   app.kubernetes.io/instance: home-assistant
 
