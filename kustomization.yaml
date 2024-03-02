@@ -10,6 +10,7 @@ commonLabels:
   app.kubernetes.io/instance: home-assistant
 
 resources:
+- resources/automations.yaml
 - resources/configmaps.yaml
 - resources/deployments.yaml
 - resources/external-secrets.yaml
