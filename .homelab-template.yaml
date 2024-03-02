@@ -1,0 +1,46 @@
+_commit: v1.5.1
+_src_path: /home/crthomas/code/charlesthomas/homelab-template
+additionalResources: ''
+backups: false
+helm: false
+homepageDescription: Home Automator
+homepageEnabled: true
+homepageGroup: Home Automation
+homepageIcon: home-assistant
+homepageName: Home Assistant
+ingClass: nginx-crt-house
+ingCname: ''
+ingExtraAnnotations: ''
+ingHost: ass.crt.house
+ingName: home-assistant
+ingPathType: Prefix
+ingSecret: ''
+ingWebSockets: true
+ingress: true
+labels: 'app: home-assistant'
+name: home-assistant
+namespace: home-assistant
+pvc: true
+pvcAccessMode: ReadWriteOnce
+pvcName: home-assistant
+pvcSize: 50Gi
+pvcStorageClass: longhorn-retain
+reloader: true
+resources:
+- configmaps.yaml
+- deployments.yaml
+- external-secrets.yaml
+- ingresses.yaml
+- pvcs.yaml
+- services.yaml
+service: true
+serviceAccount: false
+svcName: home-assistant
+svcPortName: http
+svcPortNum: 8123
+svcProtocol: TCP
+svcSelector: 'app: home-assistant'
+svcTargetPort: http
+svcType: ClusterIP
+upstreamURL: https://home-assistant.io
+url: https://github.com/charlesthomas/homelab-home-assistant
