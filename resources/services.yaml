@@ -12,4 +12,5 @@ spec:
     protocol: TCP
     name: http
   selector:
-    app: home-assistant
+    app.kubernetes.io/name: home-assistant
+    app.kubernetes.io/instance: home-assistant
