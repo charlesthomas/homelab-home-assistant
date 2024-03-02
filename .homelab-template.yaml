@@ -1,6 +1,6 @@
 _commit: v1.5.1
 _src_path: /home/crthomas/code/charlesthomas/homelab-template
-additionalResources: ''
+additionalResources: 'automations.yaml'
 backups: false
 helm: false
 homepageDescription: Home Automator
@@ -27,6 +27,7 @@ pvcSize: 50Gi
 pvcStorageClass: longhorn-retain
 reloader: true
 resources:
+- automations.yaml
 - configmaps.yaml
 - deployments.yaml
 - external-secrets.yaml
