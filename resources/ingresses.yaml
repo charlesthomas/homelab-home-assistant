@@ -14,7 +14,7 @@ metadata:
     gethomepage.dev/name: Home Assistant
     gethomepage.dev/pod-selector: ""
 spec:
-  ingressClassName: nginx-crt-house
+  ingressClassName: nginx-internal
   rules:
     - host: "ass.crt.house"
       http:
