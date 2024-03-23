@@ -6,13 +6,6 @@ metadata:
   annotations:
     external-dns.alpha.kubernetes.io/hostname: ass.crt.house
     nginx.org/websocket-services: home-assistant
-    gethomepage.dev/href: https://ass.crt.house
-    gethomepage.dev/enabled: "true"
-    gethomepage.dev/description: Home Automator
-    gethomepage.dev/group: Home Automation
-    gethomepage.dev/icon: home-assistant
-    gethomepage.dev/name: Home Assistant
-    gethomepage.dev/pod-selector: ""
 spec:
   ingressClassName: nginx-internal
   rules:
