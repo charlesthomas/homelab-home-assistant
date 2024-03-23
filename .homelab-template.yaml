@@ -1,4 +1,4 @@
-_commit: v1.6.8
+_commit: v1.8.2
 _src_path: /home/crthomas/code/charlesthomas/homelab-template
 additionalResources: automations.yaml
 backups: false
@@ -14,7 +14,6 @@ ingExtraAnnotations: ''
 ingHost: ass.crt.house
 ingName: home-assistant
 ingPathType: Prefix
-ingSecret: ''
 ingWebSockets: true
 ingress: true
 labels: |-

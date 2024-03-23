@@ -29,3 +29,19 @@ patches:
         reloader.stakater.com/auto: "true"
   target:
     kind: Deployment
+- patch: |-
+    apiVersion: networking.k8s.io/v1
+    kind: Ingress
+    metadata:
+      name: home-assistant
+      namespace: home-assistant
+      annotations:
+        gethomepage.dev/href: https://ass.crt.house
+        gethomepage.dev/enabled: "true"
+        gethomepage.dev/description: Home Automator
+        gethomepage.dev/group: Home Automation
+        gethomepage.dev/icon: home-assistant
+        gethomepage.dev/name: Home Assistant
+        gethomepage.dev/pod-selector: ""
+  target:
+    kind: Ingress
