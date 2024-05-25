@@ -79,7 +79,7 @@ data:
       use_blueprint:
         path: patpac9/Hue_Dimmer_Switch_Easy_Custom_Buttons.yaml
         input:
-          controller: "CT BR Switch"
+          controller: CT BR Switch
           on_press:
             - type: turn_on
               device_id: 86947dc3993b59bc2a428d4fd8b90fde
@@ -117,7 +117,7 @@ data:
         path: patpac9/Hue_Dimmer_Switch_Easy_Custom_Buttons.yaml
         input:
           on_released: []
-          controller: "Dining Room Switch"
+          controller: Dining Room Switch
           off_released: []
           on_press:
             - type: turn_on
@@ -206,7 +206,7 @@ data:
       use_blueprint:
         path: patpac9/Hue_Dimmer_Switch_Easy_Custom_Buttons.yaml
         input:
-          controller: "0x0017880102d4519a"
+          controller: Guest Bathroom Switch
           on_press:
             - type: turn_on
               device_id: fa4bba6fd8a65f4809b4478988b7438d
@@ -258,7 +258,7 @@ data:
       use_blueprint:
         path: patpac9/Hue_Dimmer_Switch_Easy_Custom_Buttons.yaml
         input:
-          controller: "0x001788010218dc3e"
+          controller: Kitchen Switch
           on_press:
             - type: turn_on
               device_id: e175752c39f5a406d86f00685b5ac21b
@@ -328,11 +328,11 @@ data:
       use_blueprint:
         path: patpac9/Hue_Dimmer_Switch_Easy_Custom_Buttons.yaml
         input:
-          controller: "Living Room Switch"
+          controller: Living Room Switch
           on_press:
             - type: turn_on
               device_id: 3c59d3807cd1590efa9ae3e4fa50005e
-              entity_id: lr_left_front
+              entity_id: a9685fb2644a46c987ec327cdcf5cda0
               domain: light
               brightness_pct: 100
             - delay:
@@ -342,7 +342,7 @@ data:
                 milliseconds: 25
             - type: turn_on
               device_id: 2f15920001aa4cf4526dcd2c4ae1d0ba
-              entity_id: lr_left_rear
+              entity_id: 8e4421aade2af8343bd3d371ba88a936
               domain: light
               brightness_pct: 100
             - delay:
@@ -352,7 +352,7 @@ data:
                 milliseconds: 25
             - type: turn_on
               device_id: 1f109e1760410aa39a48145d1b471736
-              entity_id: lr_right_front
+              entity_id: 3d4ab3fe3cf9d4eb834772c652a3d8c7
               domain: light
               brightness_pct: 100
             - delay:
@@ -362,13 +362,13 @@ data:
                 milliseconds: 25
             - type: turn_on
               device_id: 675b724b9e45751d6a48f648fd0514d1
-              entity_id: lr_right_rear
+              entity_id: d8d7623052a3f9bbfbc870c9d04d3655
               domain: light
               brightness_pct: 100
           off_pressed:
             - type: turn_off
               device_id: 3c59d3807cd1590efa9ae3e4fa50005e
-              entity_id: lr_left_front
+              entity_id: a9685fb2644a46c987ec327cdcf5cda0
               domain: light
             - delay:
                 hours: 0
@@ -377,7 +377,7 @@ data:
                 milliseconds: 25
             - type: turn_off
               device_id: 2f15920001aa4cf4526dcd2c4ae1d0ba
-              entity_id: lr_left_rear
+              entity_id: 8e4421aade2af8343bd3d371ba88a936
               domain: light
             - delay:
                 hours: 0
@@ -386,7 +386,7 @@ data:
                 milliseconds: 25
             - type: turn_off
               device_id: 1f109e1760410aa39a48145d1b471736
-              entity_id: lr_right_front
+              entity_id: 3d4ab3fe3cf9d4eb834772c652a3d8c7
               domain: light
             - delay:
                 hours: 0
@@ -395,7 +395,7 @@ data:
                 milliseconds: 25
             - type: turn_off
               device_id: 675b724b9e45751d6a48f648fd0514d1
-              entity_id: lr_right_rear
+              entity_id: d8d7623052a3f9bbfbc870c9d04d3655
               domain: light
     - alias: Movie Mode Disabled
       description: ""
