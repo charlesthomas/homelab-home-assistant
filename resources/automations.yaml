@@ -6,27 +6,6 @@ metadata:
   namespace: home-assistant
 data:
   automations.yaml: |
-    - alias: Coffee Pot
-      description: ""
-      trigger:
-        - platform: time
-          at: "06:15:00"
-      condition: []
-      action:
-        - type: turn_on
-          device_id: 751258a83b71dc6d1b8102dd75aedd3e
-          entity_id: bc85422efd980d712fef050347614f1d
-          domain: switch
-        - delay:
-            hours: 0
-            minutes: 10
-            seconds: 0
-            milliseconds: 0
-        - type: turn_off
-          device_id: 751258a83b71dc6d1b8102dd75aedd3e
-          entity_id: bc85422efd980d712fef050347614f1d
-          domain: switch
-      mode: single
     - alias: CT Bath Motion On
       description: ""
       trigger:
@@ -54,11 +33,11 @@ data:
       use_blueprint:
         path: patpac9/Hue_Dimmer_Switch_Easy_Custom_Buttons.yaml
         input:
-          controller: "0x001788010c29e807"
+          controller: "CT Bath Light Switch"
           on_press:
             - type: turn_on
               device_id: cf13b868bb8a1a584e068d0d53696471
-              entity_id: d7ab22d757c625e844ddd57ed7844b7a
+              entity_id: ct_bath_center
               domain: light
             - delay:
                 hours: 0
@@ -67,7 +46,7 @@ data:
                 milliseconds: 25
             - type: turn_on
               device_id: 05db9b5d8b33e6d69d61e0c3f10097d2
-              entity_id: cdf1e1e3d57d631d90df24dd66f10f62
+              entity_id: ct_bath_left
               domain: light
             - delay:
                 hours: 0
@@ -76,12 +55,12 @@ data:
                 milliseconds: 25
             - type: turn_on
               device_id: 4251f1ff975d7308138c51e433cb3c20
-              entity_id: 1e22633599370136c48f4612f13cbf74
+              entity_id: ct_bath_right
               domain: light
           off_pressed:
             - type: turn_off
               device_id: cf13b868bb8a1a584e068d0d53696471
-              entity_id: d7ab22d757c625e844ddd57ed7844b7a
+              entity_id: ct_bath_center
               domain: light
             - delay:
                 hours: 0
@@ -90,7 +69,7 @@ data:
                 milliseconds: 25
             - type: turn_off
               device_id: 05db9b5d8b33e6d69d61e0c3f10097d2
-              entity_id: cdf1e1e3d57d631d90df24dd66f10f62
+              entity_id: ct_bath_left
               domain: light
             - delay:
                 hours: 0
@@ -99,7 +78,7 @@ data:
                 milliseconds: 25
             - type: turn_off
               device_id: 4251f1ff975d7308138c51e433cb3c20
-              entity_id: 1e22633599370136c48f4612f13cbf74
+              entity_id: ct_bath_right
               domain: light
     - alias: CT Bedroom Motion On
       description: ""
@@ -120,7 +99,7 @@ data:
       use_blueprint:
         path: patpac9/Hue_Dimmer_Switch_Easy_Custom_Buttons.yaml
         input:
-          controller: "0x001788010b7457e4"
+          controller: "CT BR Switch"
           on_press:
             - type: turn_on
               device_id: 86947dc3993b59bc2a428d4fd8b90fde
@@ -131,13 +110,34 @@ data:
               device_id: 86947dc3993b59bc2a428d4fd8b90fde
               entity_id: a7b7086e644289db071ea71a9a9fc2a2
               domain: light
+    - alias: Coffee Pot
+      description: ""
+      trigger:
+        - platform: time
+          at: "06:15:00"
+      condition: []
+      action:
+        - type: turn_on
+          device_id: 751258a83b71dc6d1b8102dd75aedd3e
+          entity_id: bc85422efd980d712fef050347614f1d
+          domain: switch
+        - delay:
+            hours: 0
+            minutes: 10
+            seconds: 0
+            milliseconds: 0
+        - type: turn_off
+          device_id: 751258a83b71dc6d1b8102dd75aedd3e
+          entity_id: bc85422efd980d712fef050347614f1d
+          domain: switch
+      mode: single
     - alias: Dining Room Switch
       description: ""
       use_blueprint:
         path: patpac9/Hue_Dimmer_Switch_Easy_Custom_Buttons.yaml
         input:
           on_released: []
-          controller: "0x0017880102d453c2"
+          controller: "Dining Room Switch"
           off_released: []
           on_press:
             - type: turn_on
@@ -348,11 +348,11 @@ data:
       use_blueprint:
         path: patpac9/Hue_Dimmer_Switch_Easy_Custom_Buttons.yaml
         input:
-          controller: "0x00178801080b228e"
+          controller: "Living Room Switch"
           on_press:
             - type: turn_on
               device_id: 3c59d3807cd1590efa9ae3e4fa50005e
-              entity_id: a9685fb2644a46c987ec327cdcf5cda0
+              entity_id: lr_left_front
               domain: light
               brightness_pct: 100
             - delay:
@@ -362,7 +362,7 @@ data:
                 milliseconds: 25
             - type: turn_on
               device_id: 2f15920001aa4cf4526dcd2c4ae1d0ba
-              entity_id: 8e4421aade2af8343bd3d371ba88a936
+              entity_id: lr_left_rear
               domain: light
               brightness_pct: 100
             - delay:
@@ -372,7 +372,7 @@ data:
                 milliseconds: 25
             - type: turn_on
               device_id: 1f109e1760410aa39a48145d1b471736
-              entity_id: 3d4ab3fe3cf9d4eb834772c652a3d8c7
+              entity_id: lr_right_front
               domain: light
               brightness_pct: 100
             - delay:
@@ -382,13 +382,13 @@ data:
                 milliseconds: 25
             - type: turn_on
               device_id: 675b724b9e45751d6a48f648fd0514d1
-              entity_id: d8d7623052a3f9bbfbc870c9d04d3655
+              entity_id: lr_right_rear
               domain: light
               brightness_pct: 100
           off_pressed:
             - type: turn_off
               device_id: 3c59d3807cd1590efa9ae3e4fa50005e
-              entity_id: a9685fb2644a46c987ec327cdcf5cda0
+              entity_id: lr_left_front
               domain: light
             - delay:
                 hours: 0
@@ -397,7 +397,7 @@ data:
                 milliseconds: 25
             - type: turn_off
               device_id: 2f15920001aa4cf4526dcd2c4ae1d0ba
-              entity_id: 8e4421aade2af8343bd3d371ba88a936
+              entity_id: lr_left_rear
               domain: light
             - delay:
                 hours: 0
@@ -406,7 +406,7 @@ data:
                 milliseconds: 25
             - type: turn_off
               device_id: 1f109e1760410aa39a48145d1b471736
-              entity_id: 3d4ab3fe3cf9d4eb834772c652a3d8c7
+              entity_id: lr_right_front
               domain: light
             - delay:
                 hours: 0
@@ -415,7 +415,7 @@ data:
                 milliseconds: 25
             - type: turn_off
               device_id: 675b724b9e45751d6a48f648fd0514d1
-              entity_id: d8d7623052a3f9bbfbc870c9d04d3655
+              entity_id: lr_right_rear
               domain: light
     - alias: Movie Mode Disabled
       description: ""
@@ -572,6 +572,114 @@ data:
             entity_id: input_boolean.movie_mode
           data: {}
       mode: single
+    - alias: Ryan BR Switch
+      description: ""
+      use_blueprint:
+        path: Drafted/aqara-buttons-all-in-one-zigbee2mqtt.yaml
+        input:
+          action_sensor: sensor.rt_br_button_click
+          single_action:
+            - type: toggle
+              device_id: da5ccd6c274cb494855e3ba9297fcd9a
+              entity_id: c034246912e3b649657d8c1b6055f745
+              domain: light
+            - type: toggle
+              device_id: 558582e047f320a6de70f930dd61f8df
+              entity_id: 1c27f2ad7006f56bfe2f57be7492ef72
+              domain: light
+            - service: input_boolean.toggle
+              target:
+                entity_id: input_boolean.ryan_s_bedroom_desired_lights_state
+              data: {}
+          double_action:
+            - if:
+                - condition: state
+                  entity_id: input_boolean.ryan_s_bedroom_desired_lights_state
+                  state: "on"
+              then:
+                - type: turn_on
+                  device_id: da5ccd6c274cb494855e3ba9297fcd9a
+                  entity_id: c034246912e3b649657d8c1b6055f745
+                  domain: light
+                - type: turn_on
+                  device_id: 558582e047f320a6de70f930dd61f8df
+                  entity_id: 1c27f2ad7006f56bfe2f57be7492ef72
+                  domain: light
+              else:
+                - type: turn_off
+                  device_id: da5ccd6c274cb494855e3ba9297fcd9a
+                  entity_id: c034246912e3b649657d8c1b6055f745
+                  domain: light
+                - type: turn_off
+                  device_id: 558582e047f320a6de70f930dd61f8df
+                  entity_id: 1c27f2ad7006f56bfe2f57be7492ef72
+                  domain: light
+    - alias: Ryan Office Switch
+      description: ""
+      use_blueprint:
+        path: Drafted/aqara-buttons-all-in-one-zigbee2mqtt.yaml
+        input:
+          action_sensor: sensor.rt_office_button_click
+          single_action:
+            - type: toggle
+              device_id: a246853be7047445f55950a190698525
+              entity_id: e7619a966ebb49e839138e92abedce51
+              domain: light
+            - type: toggle
+              device_id: dafec26d8ef2fe5452029e5c4eca4685
+              entity_id: 25eaf7822a57c9bab6064e277a875477
+              domain: light
+            - type: toggle
+              device_id: 525ca2c6e82b423542eb4b5949886f5a
+              entity_id: f09ef306d06578cce0a5410b718125e5
+              domain: light
+            - type: toggle
+              device_id: e2b83384489c13db454469dcba18f67e
+              entity_id: dfee3ba08fac6d83e2221ff0013cb5a2
+              domain: light
+            - service: input_boolean.toggle
+              target:
+                entity_id: input_boolean.ryan_s_office_desired_lights_state
+              data: {}
+          double_action:
+            - if:
+                - condition: state
+                  entity_id: input_boolean.ryan_s_office_desired_lights_state
+                  state: "on"
+              then:
+                - type: turn_on
+                  device_id: a246853be7047445f55950a190698525
+                  entity_id: e7619a966ebb49e839138e92abedce51
+                  domain: light
+                - type: turn_on
+                  device_id: dafec26d8ef2fe5452029e5c4eca4685
+                  entity_id: 25eaf7822a57c9bab6064e277a875477
+                  domain: light
+                - type: turn_on
+                  device_id: 525ca2c6e82b423542eb4b5949886f5a
+                  entity_id: f09ef306d06578cce0a5410b718125e5
+                  domain: light
+                - type: turn_on
+                  device_id: e2b83384489c13db454469dcba18f67e
+                  entity_id: dfee3ba08fac6d83e2221ff0013cb5a2
+                  domain: light
+              else:
+                - type: turn_off
+                  device_id: a246853be7047445f55950a190698525
+                  entity_id: e7619a966ebb49e839138e92abedce51
+                  domain: light
+                - type: turn_off
+                  device_id: dafec26d8ef2fe5452029e5c4eca4685
+                  entity_id: 25eaf7822a57c9bab6064e277a875477
+                  domain: light
+                - type: turn_off
+                  device_id: 525ca2c6e82b423542eb4b5949886f5a
+                  entity_id: f09ef306d06578cce0a5410b718125e5
+                  domain: light
+                - type: turn_off
+                  device_id: e2b83384489c13db454469dcba18f67e
+                  entity_id: dfee3ba08fac6d83e2221ff0013cb5a2
+                  domain: light
     - alias: Rotate Avengers
       description: ""
       trigger:
@@ -595,283 +703,3 @@ data:
           entity_id: 1e65d530659a5e90b55abc710dbbc044
           domain: switch
       mode: single
-    - alias: RT Bedroom Aquara Force Off
-      description: When only some of the lights are off, force them all off
-      trigger:
-        - platform: device
-          domain: mqtt
-          device_id: d93b5dc09f1b98a5c9cf113aad9b74bd
-          type: action
-          subtype: hold
-          discovery_id: 0x00158d000abd3612 action_hold
-      condition:
-        - condition: state
-          entity_id: input_boolean.ryan_s_bedroom_desired_lights_state
-          state: "off"
-      action:
-        - type: turn_off
-          device_id: 558582e047f320a6de70f930dd61f8df
-          entity_id: 1c27f2ad7006f56bfe2f57be7492ef72
-          domain: light
-        - type: turn_off
-          device_id: da5ccd6c274cb494855e3ba9297fcd9a
-          entity_id: c034246912e3b649657d8c1b6055f745
-          domain: light
-      mode: single
-    - alias: RT Bedroom Aquara Force On
-      description: When only some of the lights are on, force them all on
-      trigger:
-        - platform: device
-          domain: mqtt
-          device_id: d93b5dc09f1b98a5c9cf113aad9b74bd
-          type: action
-          subtype: hold
-          discovery_id: 0x00158d000abd3612 action_hold
-      condition:
-        - condition: state
-          entity_id: input_boolean.ryan_s_bedroom_desired_lights_state
-          state: "on"
-      action:
-        - type: turn_on
-          device_id: 558582e047f320a6de70f930dd61f8df
-          entity_id: 1c27f2ad7006f56bfe2f57be7492ef72
-          domain: light
-        - type: turn_on
-          device_id: da5ccd6c274cb494855e3ba9297fcd9a
-          entity_id: c034246912e3b649657d8c1b6055f745
-          domain: light
-      mode: single
-    - alias: RT Bedroom Aquara Toggle Off
-      description: When the lights are on, turn them off
-      trigger:
-        - platform: device
-          domain: mqtt
-          device_id: d93b5dc09f1b98a5c9cf113aad9b74bd
-          type: action
-          subtype: single
-          discovery_id: 0x00158d000abd3612 action_single
-      condition:
-        - condition: state
-          entity_id: input_boolean.ryan_s_bedroom_desired_lights_state
-          state: "on"
-      action:
-        - type: turn_off
-          device_id: da5ccd6c274cb494855e3ba9297fcd9a
-          entity_id: c034246912e3b649657d8c1b6055f745
-          domain: light
-        - type: turn_off
-          device_id: 558582e047f320a6de70f930dd61f8df
-          entity_id: 1c27f2ad7006f56bfe2f57be7492ef72
-          domain: light
-        - service: input_boolean.turn_off
-          target:
-            entity_id:
-              - input_boolean.ryan_s_bedroom_desired_lights_state
-            device_id: []
-            area_id: []
-          data: {}
-      mode: single
-    - alias: RT Bedroom Aquara Toggle On
-      description: When the lights are off, turn them on
-      trigger:
-        - platform: device
-          domain: mqtt
-          device_id: d93b5dc09f1b98a5c9cf113aad9b74bd
-          type: action
-          subtype: single
-          discovery_id: 0x00158d000abd3612 action_single
-      condition:
-        - condition: state
-          entity_id: input_boolean.ryan_s_bedroom_desired_lights_state
-          state: "off"
-      action:
-        - type: turn_on
-          device_id: da5ccd6c274cb494855e3ba9297fcd9a
-          entity_id: c034246912e3b649657d8c1b6055f745
-          domain: light
-        - type: turn_on
-          device_id: 558582e047f320a6de70f930dd61f8df
-          entity_id: 1c27f2ad7006f56bfe2f57be7492ef72
-          domain: light
-        - service: input_boolean.turn_on
-          target:
-            entity_id:
-              - input_boolean.ryan_s_bedroom_desired_lights_state
-            device_id: []
-            area_id: []
-          data: {}
-      mode: single
-    - alias: Ryan BR Switch
-      description: ""
-      use_blueprint:
-        path: Drafted/aqara-buttons-all-in-one-zigbee2mqtt.yaml
-        input:
-          action_sensor: sensor.ryan_s_bedroom_aqara_click
-          single_action:
-            - type: toggle
-              device_id: da5ccd6c274cb494855e3ba9297fcd9a
-              entity_id: c034246912e3b649657d8c1b6055f745
-              domain: light
-            - type: toggle
-              device_id: 558582e047f320a6de70f930dd61f8df
-              entity_id: 1c27f2ad7006f56bfe2f57be7492ef72
-              domain: light
-          hold_action: []
-    - alias: RT Office Aquara Force Off
-      description: When only some of the lights are off, force them all off
-      trigger:
-        - platform: device
-          domain: mqtt
-          device_id: ece33d8a02d3e229e70686ba5e36451e
-          type: action
-          subtype: hold
-          discovery_id: 0x00158d000abd3637 action_hold
-      condition:
-        - condition: state
-          entity_id: input_boolean.ryan_s_office_desired_lights_state
-          state: "off"
-      action:
-        - type: turn_off
-          device_id: a246853be7047445f55950a190698525
-          entity_id: e7619a966ebb49e839138e92abedce51
-          domain: light
-        - type: turn_off
-          device_id: dafec26d8ef2fe5452029e5c4eca4685
-          entity_id: 25eaf7822a57c9bab6064e277a875477
-          domain: light
-        - type: turn_off
-          device_id: 525ca2c6e82b423542eb4b5949886f5a
-          entity_id: f09ef306d06578cce0a5410b718125e5
-          domain: light
-        - type: turn_off
-          device_id: e2b83384489c13db454469dcba18f67e
-          entity_id: dfee3ba08fac6d83e2221ff0013cb5a2
-          domain: light
-      mode: single
-    - alias: RT Office Aquara Force On
-      description: When only some of the lights are on, force them all on
-      trigger:
-        - platform: device
-          domain: mqtt
-          device_id: ece33d8a02d3e229e70686ba5e36451e
-          type: action
-          subtype: hold
-          discovery_id: 0x00158d000abd3637 action_hold
-      condition:
-        - condition: state
-          entity_id: input_boolean.ryan_s_office_desired_lights_state
-          state: "on"
-      action:
-        - type: turn_on
-          device_id: a246853be7047445f55950a190698525
-          entity_id: e7619a966ebb49e839138e92abedce51
-          domain: light
-        - type: turn_on
-          device_id: dafec26d8ef2fe5452029e5c4eca4685
-          entity_id: 25eaf7822a57c9bab6064e277a875477
-          domain: light
-        - type: turn_on
-          device_id: 525ca2c6e82b423542eb4b5949886f5a
-          entity_id: f09ef306d06578cce0a5410b718125e5
-          domain: light
-        - type: turn_on
-          device_id: e2b83384489c13db454469dcba18f67e
-          entity_id: dfee3ba08fac6d83e2221ff0013cb5a2
-          domain: light
-      mode: single
-    - alias: RT Office Aquara Toggle Off
-      description: When the lights are on, turn them off
-      trigger:
-        - platform: device
-          domain: mqtt
-          device_id: ece33d8a02d3e229e70686ba5e36451e
-          type: click
-          subtype: single
-          discovery_id: 0x00158d000abd3637 click_single
-      condition:
-        - condition: state
-          entity_id: input_boolean.ryan_s_office_desired_lights_state
-          state: "on"
-      action:
-        - type: turn_off
-          device_id: a246853be7047445f55950a190698525
-          entity_id: e7619a966ebb49e839138e92abedce51
-          domain: light
-        - type: turn_off
-          device_id: dafec26d8ef2fe5452029e5c4eca4685
-          entity_id: 25eaf7822a57c9bab6064e277a875477
-          domain: light
-        - type: turn_off
-          device_id: 525ca2c6e82b423542eb4b5949886f5a
-          entity_id: f09ef306d06578cce0a5410b718125e5
-          domain: light
-        - type: turn_off
-          device_id: e2b83384489c13db454469dcba18f67e
-          entity_id: dfee3ba08fac6d83e2221ff0013cb5a2
-          domain: light
-        - service: input_boolean.turn_off
-          target:
-            entity_id: input_boolean.ryan_s_office_desired_lights_state
-          data: {}
-      mode: single
-    - alias: RT Office Aquara Toggle On
-      description: When the lights are off, turn them on
-      trigger:
-        - platform: device
-          domain: mqtt
-          device_id: ece33d8a02d3e229e70686ba5e36451e
-          type: click
-          subtype: single
-          discovery_id: 0x00158d000abd3637 click_single
-      condition:
-        - condition: state
-          entity_id: input_boolean.ryan_s_office_desired_lights_state
-          state: "off"
-      action:
-        - type: turn_on
-          device_id: a246853be7047445f55950a190698525
-          entity_id: e7619a966ebb49e839138e92abedce51
-          domain: light
-        - type: turn_on
-          device_id: dafec26d8ef2fe5452029e5c4eca4685
-          entity_id: 25eaf7822a57c9bab6064e277a875477
-          domain: light
-        - type: turn_on
-          device_id: 525ca2c6e82b423542eb4b5949886f5a
-          entity_id: f09ef306d06578cce0a5410b718125e5
-          domain: light
-        - type: turn_on
-          device_id: e2b83384489c13db454469dcba18f67e
-          entity_id: dfee3ba08fac6d83e2221ff0013cb5a2
-          domain: light
-        - service: input_boolean.turn_on
-          target:
-            entity_id:
-              - input_boolean.ryan_s_office_desired_lights_state
-            device_id: []
-            area_id: []
-          data: {}
-      mode: single
-    - alias: Ryan Office Switch
-      description: ""
-      use_blueprint:
-        path: Drafted/aqara-buttons-all-in-one-zigbee2mqtt.yaml
-        input:
-          action_sensor: sensor.ryan_s_office_aqara_click
-          single_action:
-            - type: toggle
-              device_id: a246853be7047445f55950a190698525
-              entity_id: e7619a966ebb49e839138e92abedce51
-              domain: light
-            - type: toggle
-              device_id: dafec26d8ef2fe5452029e5c4eca4685
-              entity_id: 25eaf7822a57c9bab6064e277a875477
-              domain: light
-            - type: toggle
-              device_id: 525ca2c6e82b423542eb4b5949886f5a
-              entity_id: f09ef306d06578cce0a5410b718125e5
-              domain: light
-            - type: toggle
-              device_id: e2b83384489c13db454469dcba18f67e
-              entity_id: dfee3ba08fac6d83e2221ff0013cb5a2
-              domain: light
