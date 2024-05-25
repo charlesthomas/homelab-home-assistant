@@ -31,8 +31,8 @@ data:
         min_color_temp: 2500
         max_color_temp: 6500
         lights: [
-          "light.desk_lamp_left",
-          "light.desk_lamp_right",
+          "light.ct_office_lamp_left",
+          "light.ct_office_lamp_right",
         ]
       - name: "kitchen"
         min_brightness: 100
@@ -54,10 +54,10 @@ data:
         sleep_color_temp: 2500
         sleep_rgb_or_color_temp: color_temp
         lights: [
-          "light.tv_lamp_left_front",
-          "light.tv_lamp_left_rear",
-          "light.tv_lamp_right_front",
-          "light.tv_lamp_right_rear"
+          "light.lr_left_front",
+          "light.lr_left_rear",
+          "light.lr_right_front",
+          "light.lr_right_rear"
         ]
       - name: "red"
         min_brightness: 100
@@ -68,8 +68,8 @@ data:
         sleep_rgb_or_color_temp: rgb_color
         sleep_rgb_color: [255, 0, 0]
         lights: [
-          "light.chuck_br_lamp",
-          "light.chuck_bathroom_left",
-          "light.chuck_bathroom_center",
-          "light.chuck_bathroom_right"
+          "light.ct_br_lamp",
+          "light.ct_bath_left",
+          "light.ct_bath_center",
+          "light.ct_bath_right"
         ]

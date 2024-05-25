@@ -3,7 +3,7 @@ description: ""
 use_blueprint:
   path: patpac9/Hue_Dimmer_Switch_Easy_Custom_Buttons.yaml
   input:
-    controller: "0x001788010c29e807"
+    controller: "CT Bath Light Switch"
     on_press:
       - type: turn_on
         device_id: cf13b868bb8a1a584e068d0d53696471
