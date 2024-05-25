@@ -4,7 +4,7 @@ use_blueprint:
   path: patpac9/Hue_Dimmer_Switch_Easy_Custom_Buttons.yaml
   input:
     on_released: []
-    controller: "Dining Room Switch"
+    controller: Dining Room Switch
     off_released: []
     on_press:
       - type: turn_on

@@ -3,7 +3,7 @@ description: ""
 use_blueprint:
   path: patpac9/Hue_Dimmer_Switch_Easy_Custom_Buttons.yaml
   input:
-    controller: "0x001788010218dc3e"
+    controller: Kitchen Switch
     on_press:
       - type: turn_on
         device_id: e175752c39f5a406d86f00685b5ac21b

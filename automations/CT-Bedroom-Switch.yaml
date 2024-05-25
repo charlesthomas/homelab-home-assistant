@@ -3,7 +3,7 @@ description: ""
 use_blueprint:
   path: patpac9/Hue_Dimmer_Switch_Easy_Custom_Buttons.yaml
   input:
-    controller: "CT BR Switch"
+    controller: CT BR Switch
     on_press:
       - type: turn_on
         device_id: 86947dc3993b59bc2a428d4fd8b90fde

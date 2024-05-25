@@ -3,7 +3,7 @@ description: ""
 use_blueprint:
   path: patpac9/Hue_Dimmer_Switch_Easy_Custom_Buttons.yaml
   input:
-    controller: "0x0017880102d4519a"
+    controller: Guest Bathroom Switch
     on_press:
       - type: turn_on
         device_id: fa4bba6fd8a65f4809b4478988b7438d
