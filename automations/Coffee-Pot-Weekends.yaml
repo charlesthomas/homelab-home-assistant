@@ -1,9 +1,13 @@
-alias: Coffee Pot
+alias: Coffee Pot Weekends
 description: ""
 trigger:
   - platform: time
-    at: "06:15:00"
-condition: []
+    at: "07:15:00"
+condition:
+  - condition: time
+    weekday:
+      - sat
+      - sun
 action:
   - type: turn_on
     device_id: 751258a83b71dc6d1b8102dd75aedd3e
