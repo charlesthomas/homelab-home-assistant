@@ -33,7 +33,7 @@ data:
       use_blueprint:
         path: patpac9/Hue_Dimmer_Switch_Easy_Custom_Buttons.yaml
         input:
-          controller: CT Bath Light Switch
+          controller: "0x001788010c29e807"
           on_press:
             - type: turn_on
               device_id: cf13b868bb8a1a584e068d0d53696471
@@ -79,7 +79,7 @@ data:
       use_blueprint:
         path: patpac9/Hue_Dimmer_Switch_Easy_Custom_Buttons.yaml
         input:
-          controller: CT BR Switch
+          controller: "0x001788010b7457e4"
           on_press:
             - type: turn_on
               device_id: 86947dc3993b59bc2a428d4fd8b90fde
@@ -149,7 +149,7 @@ data:
         path: patpac9/Hue_Dimmer_Switch_Easy_Custom_Buttons.yaml
         input:
           on_released: []
-          controller: Dining Room Switch
+          controller: "0x0017880102d453c2"
           off_released: []
           on_press:
             - type: turn_on
@@ -360,7 +360,7 @@ data:
       use_blueprint:
         path: patpac9/Hue_Dimmer_Switch_Easy_Custom_Buttons.yaml
         input:
-          controller: Living Room Switch
+          controller: "0x00178801080b228e"
           on_press:
             - type: turn_on
               device_id: 3c59d3807cd1590efa9ae3e4fa50005e

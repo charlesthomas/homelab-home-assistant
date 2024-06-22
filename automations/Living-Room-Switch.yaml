@@ -3,7 +3,7 @@ description: ""
 use_blueprint:
   path: patpac9/Hue_Dimmer_Switch_Easy_Custom_Buttons.yaml
   input:
-    controller: Living Room Switch
+    controller: "0x00178801080b228e"
     on_press:
       - type: turn_on
         device_id: 3c59d3807cd1590efa9ae3e4fa50005e
