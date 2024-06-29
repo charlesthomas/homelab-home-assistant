@@ -6,6 +6,32 @@ metadata:
   namespace: home-assistant
 data:
   automations.yaml: |
+    - alias: CT Bath Humidity High Fan On
+      description: ""
+      trigger:
+        - platform: template
+          value_template: >-
+            {{ (states.sensor.ct_bath_inside_humidity.state | float - states.sensor.ct_bath_outside_humidity.state | float) > 1 | int }}
+      condition: []
+      action:
+        - type: turn_on
+          device_id: 9a42216157a4697779238535b9f655f9
+          entity_id: 56ff874adba8da9c0b533aa74f230091
+          domain: switch
+      mode: single
+    - alias: CT Bath Humidity Low Fan Off
+      description: ""
+      trigger:
+        - platform: template
+          value_template: >-
+            {{ (states.sensor.ct_bath_inside_humidity.state | float - states.sensor.ct_bath_outside_humidity.state | float) <= 1 | int }}
+      condition: []
+      action:
+        - type: turn_off
+          device_id: 9a42216157a4697779238535b9f655f9
+          entity_id: 56ff874adba8da9c0b533aa74f230091
+          domain: switch
+      mode: single
     - alias: CT Bath Motion On
       description: ""
       trigger:
