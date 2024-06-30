@@ -1,0 +1,13 @@
+alias: Kitchen Motion On
+description: ""
+trigger:
+  - type: motion
+    platform: device
+    device_id: b1cf547c46b0b9fa17211b2685d5e5cf
+    entity_id: 40e0cb4c514ef2e80bd49f6cd905981b
+    domain: binary_sensor
+action:
+  - type: turn_on
+    device_id: 64cb39541183d46fd5d8f061f93a02e9
+    entity_id: a73f4a5455f4e18749c6aab38182339d
+    domain: switch

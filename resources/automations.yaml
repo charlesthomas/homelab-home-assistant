@@ -11,7 +11,7 @@ data:
       trigger:
         - platform: template
           value_template: >-
-            {{ (states.sensor.ct_bath_inside_humidity.state | float - states.sensor.ct_bath_outside_humidity.state | float) > 4 | int }}
+            {{ (states.sensor.ct_bath_inside_humidity.state | float - states.sensor.ct_bath_outside_humidity.state | float) > 5 | int }}
       condition: []
       action:
         - type: turn_on
@@ -24,7 +24,7 @@ data:
       trigger:
         - platform: template
           value_template: >-
-            {{ (states.sensor.ct_bath_inside_humidity.state | float - states.sensor.ct_bath_outside_humidity.state | float) <= 4 | int }}
+            {{ (states.sensor.ct_bath_inside_humidity.state | float - states.sensor.ct_bath_outside_humidity.state | float) <= 3 | int }}
       condition: []
       action:
         - type: turn_off
@@ -32,13 +32,39 @@ data:
           entity_id: 56ff874adba8da9c0b533aa74f230091
           domain: switch
       mode: single
+    - alias: CT Bath Motion Off
+      description: ""
+      trigger:
+        - type: no_motion
+          platform: device
+          device_id: eb8c523f2bba8c1e78886b92ca19c3b7
+          entity_id: d1302ff56bd05d0cb96631d4471db6e0
+          domain: binary_sensor
+          for:
+            hours: 0
+            minutes: 1
+            seconds: 0
+      action:
+        - type: turn_off
+          device_id: cf13b868bb8a1a584e068d0d53696471
+          entity_id: d7ab22d757c625e844ddd57ed7844b7a
+          domain: light
+        - type: turn_off
+          device_id: 4251f1ff975d7308138c51e433cb3c20
+          entity_id: 1e22633599370136c48f4612f13cbf74
+          domain: light
+        - type: turn_off
+          device_id: 05db9b5d8b33e6d69d61e0c3f10097d2
+          entity_id: cdf1e1e3d57d631d90df24dd66f10f62
+          domain: light
+      mode: single
     - alias: CT Bath Motion On
       description: ""
       trigger:
         - type: motion
           platform: device
-          device_id: b1cf547c46b0b9fa17211b2685d5e5cf
-          entity_id: 40e0cb4c514ef2e80bd49f6cd905981b
+          device_id: eb8c523f2bba8c1e78886b92ca19c3b7
+          entity_id: d1302ff56bd05d0cb96631d4471db6e0
           domain: binary_sensor
       action:
         - type: turn_on
@@ -221,6 +247,36 @@ data:
               device_id: 12911c98dfa17da0ca1355fddb794804
               entity_id: 05bc316c1cf4b0faa6124d29cfbda14c
               domain: light
+    - alias: Kitchen Motion Off
+      description: ""
+      trigger:
+        - type: no_motion
+          platform: device
+          device_id: b1cf547c46b0b9fa17211b2685d5e5cf
+          entity_id: 40e0cb4c514ef2e80bd49f6cd905981b
+          domain: binary_sensor
+          for:
+            hours: 0
+            minutes: 1
+            seconds: 0
+      action:
+        - type: turn_off
+          device_id: 64cb39541183d46fd5d8f061f93a02e9
+          entity_id: a73f4a5455f4e18749c6aab38182339d
+          domain: switch
+    - alias: Kitchen Motion On
+      description: ""
+      trigger:
+        - type: motion
+          platform: device
+          device_id: b1cf547c46b0b9fa17211b2685d5e5cf
+          entity_id: 40e0cb4c514ef2e80bd49f6cd905981b
+          domain: binary_sensor
+      action:
+        - type: turn_on
+          device_id: 64cb39541183d46fd5d8f061f93a02e9
+          entity_id: a73f4a5455f4e18749c6aab38182339d
+          domain: switch
     - alias: Living Room Switch
       description: ""
       use_blueprint:
