@@ -11,7 +11,7 @@ data:
       trigger:
         - platform: template
           value_template: >-
-            {{ (states.sensor.ct_bath_inside_humidity.state | float - states.sensor.ct_bath_outside_humidity.state | float) > 2 | int }}
+            {{ (states.sensor.ct_bath_inside_humidity.state | float - states.sensor.ct_bath_outside_humidity.state | float) > 4 | int }}
       condition: []
       action:
         - type: turn_on
@@ -24,7 +24,7 @@ data:
       trigger:
         - platform: template
           value_template: >-
-            {{ (states.sensor.ct_bath_inside_humidity.state | float - states.sensor.ct_bath_outside_humidity.state | float) <= 2 | int }}
+            {{ (states.sensor.ct_bath_inside_humidity.state | float - states.sensor.ct_bath_outside_humidity.state | float) <= 4 | int }}
       condition: []
       action:
         - type: turn_off
