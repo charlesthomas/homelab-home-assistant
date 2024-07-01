@@ -42,8 +42,8 @@ data:
           domain: binary_sensor
           for:
             hours: 0
-            minutes: 1
-            seconds: 0
+            minutes: 0
+            seconds: 30
       action:
         - type: turn_off
           device_id: cf13b868bb8a1a584e068d0d53696471
@@ -67,6 +67,10 @@ data:
           entity_id: d1302ff56bd05d0cb96631d4471db6e0
           domain: binary_sensor
       action:
+        - type: turn_on
+          device_id: 18d6dc3103de4d82f670313a4914d653
+          entity_id: b55a9ff6c38d65be26e249898268d1a9
+          domain: switch
         - type: turn_on
           device_id: cf13b868bb8a1a584e068d0d53696471
           entity_id: d7ab22d757c625e844ddd57ed7844b7a
@@ -112,6 +116,24 @@ data:
               device_id: 4251f1ff975d7308138c51e433cb3c20
               entity_id: 1e22633599370136c48f4612f13cbf74
               domain: light
+    - alias: CT Bedroom Motion On
+      description: ""
+      trigger:
+        - type: no_motion
+          platform: device
+          device_id: a6e4f3acb2097d1c744e38f6106b20b3
+          entity_id: 5a1b3872436c4a2fa1624645f72353de
+          domain: binary_sensor
+          for:
+            hours: 0
+            minutes: 0
+            seconds: 30
+      action:
+        - type: turn_on
+          device_id: 86947dc3993b59bc2a428d4fd8b90fde
+          entity_id: a7b7086e644289db071ea71a9a9fc2a2
+          domain: light
+      mode: single
     - alias: CT Bedroom Motion On
       description: ""
       trigger:
@@ -257,8 +279,8 @@ data:
           domain: binary_sensor
           for:
             hours: 0
-            minutes: 1
-            seconds: 0
+            minutes: 0
+            seconds: 30
       action:
         - type: turn_off
           device_id: 64cb39541183d46fd5d8f061f93a02e9

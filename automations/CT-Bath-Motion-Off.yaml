@@ -8,8 +8,8 @@ trigger:
     domain: binary_sensor
     for:
       hours: 0
-      minutes: 1
-      seconds: 0
+      minutes: 0
+      seconds: 30
 action:
   - type: turn_off
     device_id: cf13b868bb8a1a584e068d0d53696471

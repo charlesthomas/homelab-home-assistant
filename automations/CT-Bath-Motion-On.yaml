@@ -8,6 +8,10 @@ trigger:
     domain: binary_sensor
 action:
   - type: turn_on
+    device_id: 18d6dc3103de4d82f670313a4914d653
+    entity_id: b55a9ff6c38d65be26e249898268d1a9
+    domain: switch
+  - type: turn_on
     device_id: cf13b868bb8a1a584e068d0d53696471
     entity_id: d7ab22d757c625e844ddd57ed7844b7a
     domain: light
