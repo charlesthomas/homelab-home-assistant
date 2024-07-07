@@ -6,10 +6,6 @@ trigger:
     device_id: eb8c523f2bba8c1e78886b92ca19c3b7
     entity_id: d1302ff56bd05d0cb96631d4471db6e0
     domain: binary_sensor
-    for:
-      hours: 0
-      minutes: 0
-      seconds: 30
 action:
   - type: turn_off
     device_id: cf13b868bb8a1a584e068d0d53696471

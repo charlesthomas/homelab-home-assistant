@@ -8,7 +8,7 @@ trigger:
     domain: binary_sensor
     for:
       hours: 0
-      minutes: 0
+      minutes: 1
       seconds: 30
 action:
   - type: turn_off
