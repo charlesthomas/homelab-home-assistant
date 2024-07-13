@@ -59,7 +59,7 @@ data:
           "light.lr_right_front",
           "light.lr_right_rear"
         ]
-      - name: "red"
+      - name: "ct bedroom"
         min_brightness: 100
         max_brightness: 100
         min_color_temp: 2500
@@ -73,3 +73,18 @@ data:
           "light.ct_bath_center",
           "light.ct_bath_right"
         ]
+      - name: "guest bathroom"
+        min_brightness: 100
+        max_brightness: 100
+        min_color_temp: 2500
+        max_color_temp: 6500
+        sleep_brightness: 35
+        sleep_rgb_or_color_temp: rgb_color
+        sleep_rgb_color: [255, 0, 0]
+        lights: [
+          "light.guest_bath_left",
+          "light.guest_bath_center",
+          "light.guest_bath_right"
+        ]
+
+
