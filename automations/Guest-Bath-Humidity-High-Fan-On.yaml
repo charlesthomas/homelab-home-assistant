@@ -1,0 +1,15 @@
+alias: Guest Bath Humidity High Fan On
+description: ""
+trigger:
+  - platform: template
+    value_template: >-
+      {{ (states.sensor.guest_bath_inside_humidity.state | float -
+      states.sensor.guest_bath_outside_humidity.state | float) > 5 | int }}
+condition: []
+action:
+  - type: turn_on
+    device_id: 9ba652777d219d3df508ab5038b9973f
+    entity_id: efc4f3a04228a8a429e4240ae38cd2d4
+    domain: switch
+mode: single
+

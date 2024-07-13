@@ -1,0 +1,27 @@
+alias: Guest Bath Motion On
+description: ""
+mode: single
+trigger:
+  - type: motion
+    platform: device
+    device_id: 7614bffd513319c78ea30c606fce4577
+    entity_id: 4122434e3e8076342d34299df6472544
+    domain: binary_sensor
+condition: []
+action:
+  - type: turn_on
+    device_id: 9ba652777d219d3df508ab5038b9973f
+    entity_id: efc4f3a04228a8a429e4240ae38cd2d4
+    domain: switch
+  - type: turn_on
+    device_id: fa4bba6fd8a65f4809b4478988b7438d
+    entity_id: f27e48812678ac93479ec82b9d269433
+    domain: light
+  - type: turn_on
+    device_id: 12911c98dfa17da0ca1355fddb794804
+    entity_id: 05bc316c1cf4b0faa6124d29cfbda14c
+    domain: light
+  - type: turn_on
+    device_id: bf83e270293f87aed81d5e4803afe4ab
+    entity_id: 569bfa5736db521ed3e996132075bc9a
+    domain: light
