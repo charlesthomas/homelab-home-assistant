@@ -12,7 +12,10 @@ data:
         - platform: template
           value_template: >-
             {{ (states.sensor.ct_bath_inside_humidity.state | float - states.sensor.ct_bath_outside_humidity.state | float) > 5 | int }}
-      condition: []
+      condition:
+        - condition: state
+          entity_id: switch.adaptive_lighting_sleep_mode_ct_bedroom
+          state: "off"
       action:
         - type: turn_on
           device_id: 9a42216157a4697779238535b9f655f9
