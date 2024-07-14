@@ -11,7 +11,7 @@ data:
       trigger:
         - platform: template
           value_template: >-
-            {{ (states.sensor.ct_bath_inside_humidity.state | float - states.sensor.ct_bath_outside_humidity.state | float) > 5 | int }}
+            {{ (states.sensor.ct_bath_inside_humidity.state | float - states.sensor.ct_bath_outside_humidity.state | float) > 5 }}
       condition:
         - condition: state
           entity_id: switch.adaptive_lighting_sleep_mode_ct_bedroom
@@ -27,7 +27,7 @@ data:
       trigger:
         - platform: template
           value_template: >-
-            {{ (states.sensor.ct_bath_inside_humidity.state | float - states.sensor.ct_bath_outside_humidity.state | float) <= 3 | int }}
+            {{ (states.sensor.ct_bath_inside_humidity.state | float - states.sensor.ct_bath_outside_humidity.state | float) <= 3 }}
       condition: []
       action:
         - type: turn_off
@@ -221,7 +221,7 @@ data:
       trigger:
         - platform: template
           value_template: >-
-            {{ (states.sensor.guest_bath_inside_humidity.state | float - states.sensor.guest_bath_outside_humidity.state | float) > 5 | int }}
+            {{ (states.sensor.guest_bath_inside_humidity.state | float - states.sensor.guest_bath_outside_humidity.state | float) > 5 }}
       condition: []
       action:
         - type: turn_on
@@ -234,7 +234,7 @@ data:
       trigger:
         - platform: template
           value_template: >-
-            {{ (states.sensor.guest_bath_inside_humidity.state | float - states.sensor.guest_bath_outside_humidity.state | float) <= 3 | int }}
+            {{ (states.sensor.guest_bath_inside_humidity.state | float - states.sensor.guest_bath_outside_humidity.state | float) <= 3 }}
       condition: []
       action:
         - type: turn_off

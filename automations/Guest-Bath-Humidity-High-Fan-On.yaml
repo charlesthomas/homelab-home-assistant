@@ -3,8 +3,7 @@ description: ""
 trigger:
   - platform: template
     value_template: >-
-      {{ (states.sensor.guest_bath_inside_humidity.state | float -
-      states.sensor.guest_bath_outside_humidity.state | float) > 5 | int }}
+      {{ (states.sensor.guest_bath_inside_humidity.state | float - states.sensor.guest_bath_outside_humidity.state | float) > 5 }}
 condition: []
 action:
   - type: turn_on
