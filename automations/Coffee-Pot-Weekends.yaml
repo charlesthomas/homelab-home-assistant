@@ -2,7 +2,7 @@ alias: Coffee Pot Weekends
 description: ""
 trigger:
   - platform: time
-    at: "07:15:00"
+    at: "07:45:00"
 condition:
   - condition: time
     weekday:

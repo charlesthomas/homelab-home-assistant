@@ -167,7 +167,7 @@ data:
       description: ""
       trigger:
         - platform: time
-          at: "06:15:00"
+          at: "06:00:00"
       condition:
         - condition: time
           weekday:
@@ -195,7 +195,7 @@ data:
       description: ""
       trigger:
         - platform: time
-          at: "07:15:00"
+          at: "07:45:00"
       condition:
         - condition: time
           weekday:
