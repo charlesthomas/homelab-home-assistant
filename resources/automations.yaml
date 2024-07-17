@@ -222,11 +222,16 @@ data:
       trigger:
         - platform: template
           value_template: >-
-            {{ (states.sensor.guest_bath_inside_humidity.state | float - states.sensor.guest_bath_outside_humidity.state | float) > 5 }}
+            {{ (states.sensor.guest_bath_inside_humidity.state | float - states.sensor.guest_bath_outside_humidity.state | float) > 6 }}
       condition:
-        - condition: state
-          entity_id: switch.adaptive_lighting_sleep_mode_guest_bathroom
-          state: "off"
+        - condition: and
+          conditions:
+            - condition: state
+              entity_id: switch.adaptive_lighting_sleep_mode_guest_bathroom
+              state: "off"
+            - condition: state
+              entity_id: input_boolean.movie_mode
+              state: "off"
       action:
         - type: turn_on
           device_id: 82a624b807353a788f8805a8a11447ec
