@@ -1,4 +1,4 @@
-alias: CT Bedroom Motion On
+alias: CT Bedroom Motion Off
 description: ""
 trigger:
   - type: no_motion
@@ -8,8 +8,8 @@ trigger:
     domain: binary_sensor
     for:
       hours: 0
-      minutes: 1
-      seconds: 30
+      minutes: 2
+      seconds: 0
 action:
   - type: turn_off
     device_id: 86947dc3993b59bc2a428d4fd8b90fde

@@ -115,7 +115,7 @@ data:
               device_id: 4251f1ff975d7308138c51e433cb3c20
               entity_id: 1e22633599370136c48f4612f13cbf74
               domain: light
-    - alias: CT Bedroom Motion On
+    - alias: CT Bedroom Motion Off
       description: ""
       trigger:
         - type: no_motion
@@ -125,8 +125,8 @@ data:
           domain: binary_sensor
           for:
             hours: 0
-            minutes: 1
-            seconds: 30
+            minutes: 2
+            seconds: 0
       action:
         - type: turn_off
           device_id: 86947dc3993b59bc2a428d4fd8b90fde
@@ -141,6 +141,13 @@ data:
           device_id: a6e4f3acb2097d1c744e38f6106b20b3
           entity_id: 5a1b3872436c4a2fa1624645f72353de
           domain: binary_sensor
+      condition:
+        - type: is_illuminance
+          condition: device
+          device_id: a6e4f3acb2097d1c744e38f6106b20b3
+          entity_id: 28ab28dddf05a4ea2e503e774f6f11c1
+          domain: sensor
+          below: 3
       action:
         - type: turn_on
           device_id: 86947dc3993b59bc2a428d4fd8b90fde
