@@ -1,0 +1,16 @@
+alias: CT Bedroom Lights Button
+description: ""
+trigger:
+  - platform: device
+    domain: mqtt
+    device_id: 12ca097eb3162d29cb1aa0e014ff6ec4
+    type: action
+    subtype: single
+    discovery_id: 0xa4c138656370a23c action_single
+condition: []
+action:
+  - type: toggle
+    device_id: 86947dc3993b59bc2a428d4fd8b90fde
+    entity_id: a7b7086e644289db071ea71a9a9fc2a2
+    domain: light
+mode: single
