@@ -162,6 +162,36 @@ data:
           entity_id: a7b7086e644289db071ea71a9a9fc2a2
           domain: light
       mode: single
+    - alias: Chandelier Off Speakers On
+      description: ""
+      trigger:
+        - platform: device
+          type: turned_off
+          device_id: 9b618ba4de7b483cfc40ab2a906edfe6
+          entity_id: 47130368d748dee4063117a1cff1a696
+          domain: switch
+      condition: []
+      action:
+        - type: turn_on
+          device_id: bdf7c3cd7590d89e31f8eb54753a6de6
+          entity_id: c24f570a5d97fec3e38c53dcc3a8e248
+          domain: switch
+      mode: single
+    - alias: Chandelier On Speakers Off
+      description: ""
+      trigger:
+        - platform: device
+          type: turned_on
+          device_id: 9b618ba4de7b483cfc40ab2a906edfe6
+          entity_id: 47130368d748dee4063117a1cff1a696
+          domain: switch
+      condition: []
+      action:
+        - type: turn_off
+          device_id: bdf7c3cd7590d89e31f8eb54753a6de6
+          entity_id: c24f570a5d97fec3e38c53dcc3a8e248
+          domain: switch
+      mode: single
     - alias: Coffee Pot Weekdays
       description: ""
       trigger:
