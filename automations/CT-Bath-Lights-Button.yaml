@@ -1,12 +1,11 @@
 alias: CT Bath Lights Button
 description: ""
 trigger:
-  - platform: device
-    domain: mqtt
-    device_id: 79c19a3bf18b35816118b4afff3a7da3
-    type: action
-    subtype: single
-    discovery_id: 0xa4c138a5359f14ac action_single
+  - platform: state
+    entity_id:
+      - sensor.ct_bath_button_action
+    attribute: action
+    to: single
 condition: []
 action:
   - type: toggle

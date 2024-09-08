@@ -1,12 +1,11 @@
 alias: CT Bedroom Lights Button
 description: ""
 trigger:
-  - platform: device
-    domain: mqtt
-    device_id: 12ca097eb3162d29cb1aa0e014ff6ec4
-    type: action
-    subtype: single
-    discovery_id: 0xa4c138656370a23c action_single
+  - platform: state
+    entity_id:
+      - sensor.ct_bedroom_button_action
+    attribute: action
+    to: single
 condition: []
 action:
   - type: toggle
