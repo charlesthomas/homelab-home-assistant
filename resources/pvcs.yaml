@@ -4,6 +4,9 @@ kind: PersistentVolumeClaim
 metadata:
   name: home-assistant
   namespace: home-assistant
+  labels:
+    
+    
 spec:
   accessModes:
   - ReadWriteOnce
