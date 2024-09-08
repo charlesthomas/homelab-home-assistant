@@ -11,7 +11,7 @@ data:
       trigger:
         - platform: template
           value_template: >-
-            {{ (states.sensor.ct_bath_inside_humidity.state | float - states.sensor.ct_bath_outside_humidity.state | float) > 5 }}
+            {{ (states.sensor.acurite_15182_ct_bath_h.state | float - states.sensor.acurite_11300_laundry_room_h.state | float) > 5 }}
       condition:
         - condition: state
           entity_id: switch.adaptive_lighting_sleep_mode_ct_bedroom
@@ -27,7 +27,7 @@ data:
       trigger:
         - platform: template
           value_template: >-
-            {{ (states.sensor.ct_bath_inside_humidity.state | float - states.sensor.ct_bath_outside_humidity.state | float) <= 3 }}
+            {{ (states.sensor.acurite_15182_ct_bath_h.state | float - states.sensor.acurite_11300_laundry_room_h.state | float) <= 3 }}
       condition: []
       action:
         - type: turn_off
@@ -251,7 +251,7 @@ data:
       trigger:
         - platform: template
           value_template: >-
-            {{ (states.sensor.guest_bath_inside_humidity.state | float - states.sensor.guest_bath_outside_humidity.state | float) > 6 }}
+            {{ (states.sensor.acurite_1194_guest_bathroom_h.state | float - states.sensor.acurite_11300_laundry_room_h.state | float) > 6 }}
       condition:
         - condition: and
           conditions:
@@ -271,7 +271,7 @@ data:
       trigger:
         - platform: template
           value_template: >-
-            {{ (states.sensor.guest_bath_inside_humidity.state | float - states.sensor.guest_bath_outside_humidity.state | float) <= 3 }}
+            {{ (states.sensor.acurite_1194_guest_bathroom_h.state | float - states.sensor.acurite_11300_laundry_room_h.state | float) <= 3 }}
       condition: []
       action:
         - type: turn_off

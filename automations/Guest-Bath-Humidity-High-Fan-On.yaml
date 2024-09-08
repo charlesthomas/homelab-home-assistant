@@ -4,8 +4,8 @@ mode: single
 trigger:
   - platform: template
     value_template: >-
-      {{ (states.sensor.guest_bath_inside_humidity.state | float -
-      states.sensor.guest_bath_outside_humidity.state | float) > 6 }}
+      {{ (states.sensor.acurite_1194_guest_bathroom_h.state | float -
+      states.sensor.acurite_11300_laundry_room_h.state | float) > 6 }}
 condition:
   - condition: and
     conditions:
