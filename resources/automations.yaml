@@ -6,35 +6,6 @@ metadata:
   namespace: home-assistant
 data:
   automations.yaml: |
-    - alias: CT Bath Humidity High Fan On
-      description: ""
-      trigger:
-        - platform: template
-          value_template: >-
-            {{ (states.sensor.acurite_15182_ct_bath_h.state | float - states.sensor.acurite_11300_laundry_room_h.state | float) > 5 }}
-      condition:
-        - condition: state
-          entity_id: switch.adaptive_lighting_sleep_mode_ct_bedroom
-          state: "off"
-      action:
-        - type: turn_on
-          device_id: 9a42216157a4697779238535b9f655f9
-          entity_id: 56ff874adba8da9c0b533aa74f230091
-          domain: switch
-      mode: single
-    - alias: CT Bath Humidity Low Fan Off
-      description: ""
-      trigger:
-        - platform: template
-          value_template: >-
-            {{ (states.sensor.acurite_15182_ct_bath_h.state | float - states.sensor.acurite_11300_laundry_room_h.state | float) <= 3 }}
-      condition: []
-      action:
-        - type: turn_off
-          device_id: 9a42216157a4697779238535b9f655f9
-          entity_id: 56ff874adba8da9c0b533aa74f230091
-          domain: switch
-      mode: single
     - alias: CT Bath Lights Button
       description: ""
       trigger:
@@ -241,40 +212,6 @@ data:
         - type: turn_off
           device_id: 751258a83b71dc6d1b8102dd75aedd3e
           entity_id: bc85422efd980d712fef050347614f1d
-          domain: switch
-      mode: single
-    - alias: Guest Bath Humidity High Fan On
-      description: ""
-      mode: single
-      trigger:
-        - platform: template
-          value_template: >-
-            {{ (states.sensor.acurite_1194_guest_bathroom_h.state | float - states.sensor.acurite_11300_laundry_room_h.state | float) > 6 }}
-      condition:
-        - condition: and
-          conditions:
-            - condition: state
-              entity_id: switch.adaptive_lighting_sleep_mode_guest_bathroom
-              state: "off"
-            - condition: state
-              entity_id: input_boolean.movie_mode
-              state: "off"
-      action:
-        - type: turn_on
-          device_id: 82a624b807353a788f8805a8a11447ec
-          entity_id: 398a9a95e9e25f2f3555f0b123ea340e
-          domain: switch
-    - alias: Guest Bath Humidity Low Fan Off
-      description: ""
-      trigger:
-        - platform: template
-          value_template: >-
-            {{ (states.sensor.acurite_1194_guest_bathroom_h.state | float - states.sensor.acurite_11300_laundry_room_h.state | float) <= 3 }}
-      condition: []
-      action:
-        - type: turn_off
-          device_id: 82a624b807353a788f8805a8a11447ec
-          entity_id: 398a9a95e9e25f2f3555f0b123ea340e
           domain: switch
       mode: single
     - alias: Guest Bath Lights Button
