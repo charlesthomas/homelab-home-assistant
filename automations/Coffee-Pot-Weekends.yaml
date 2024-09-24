@@ -1,8 +1,9 @@
 alias: Coffee Pot Weekends
 description: ""
+mode: single
 trigger:
   - platform: time
-    at: "07:45:00"
+    at: input_datetime.weekend_coffee
 condition:
   - condition: time
     weekday:
@@ -22,4 +23,3 @@ action:
     device_id: 751258a83b71dc6d1b8102dd75aedd3e
     entity_id: bc85422efd980d712fef050347614f1d
     domain: switch
-mode: single

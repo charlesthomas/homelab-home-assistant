@@ -163,9 +163,10 @@ data:
       mode: single
     - alias: Coffee Pot Weekdays
       description: ""
+      mode: single
       trigger:
         - platform: time
-          at: "06:00:00"
+          at: input_datetime.weekday_coffee
       condition:
         - condition: time
           weekday:
@@ -188,12 +189,12 @@ data:
           device_id: 751258a83b71dc6d1b8102dd75aedd3e
           entity_id: bc85422efd980d712fef050347614f1d
           domain: switch
-      mode: single
     - alias: Coffee Pot Weekends
       description: ""
+      mode: single
       trigger:
         - platform: time
-          at: "07:45:00"
+          at: input_datetime.weekend_coffee
       condition:
         - condition: time
           weekday:
@@ -213,7 +214,6 @@ data:
           device_id: 751258a83b71dc6d1b8102dd75aedd3e
           entity_id: bc85422efd980d712fef050347614f1d
           domain: switch
-      mode: single
     - alias: Guest Bath Lights Button
       description: ""
       trigger:
@@ -287,6 +287,34 @@ data:
           device_id: bf83e270293f87aed81d5e4803afe4ab
           entity_id: 569bfa5736db521ed3e996132075bc9a
           domain: light
+    - alias: Guest Bath Sleep Mode Schedule Off
+      description: ""
+      mode: single
+      trigger:
+        - platform: state
+          entity_id:
+            - schedule.guest_bathroom_sleep_mode
+          to: "off"
+      condition: []
+      action:
+        - service: switch.turn_off
+          target:
+            entity_id: switch.adaptive_lighting_sleep_mode_guest_bathroom
+          data: {}
+    - alias: Guest Bath Sleep Mode Schedule On
+      description: ""
+      mode: single
+      trigger:
+        - platform: state
+          entity_id:
+            - schedule.guest_bathroom_sleep_mode
+          to: "off"
+      condition: []
+      action:
+        - service: switch.turn_on
+          target:
+            entity_id: switch.adaptive_lighting_sleep_mode_guest_bathroom
+          data: {}
     - alias: Kitchen Motion Off
       description: ""
       trigger:
