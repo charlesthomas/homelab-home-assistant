@@ -57,6 +57,7 @@ spec:
             failureThreshold: 3
             timeoutSeconds: 1
             periodSeconds: 10
+          resources: {}
           startupProbe:
             tcpSocket:
               port: 8123
@@ -79,17 +80,18 @@ spec:
         name: automations
       hostNetwork: true
       initContainers:
-      - name: copy
-        command:
-        - /bin/sh
-        - -c
-        - ' cp -v /configuration-yaml/configuration.yaml /automations-yaml/automations.yaml /config/'
-        image: alpine:latest
-        imagePullPolicy: IfNotPresent
-        volumeMounts:
-        - mountPath: /config
-          name: config
-        - mountPath: /configuration-yaml/
-          name: configuration
-        - mountPath: /automations-yaml/
-          name: automations
+        - name: copy
+          command:
+          - /bin/sh
+          - -c
+          - ' cp -v /configuration-yaml/configuration.yaml /automations-yaml/automations.yaml /config/'
+          image: alpine:latest
+          imagePullPolicy: IfNotPresent
+          resources: {}
+          volumeMounts:
+          - mountPath: /config
+            name: config
+          - mountPath: /configuration-yaml/
+            name: configuration
+          - mountPath: /automations-yaml/
+            name: automations
