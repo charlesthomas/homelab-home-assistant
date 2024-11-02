@@ -1,0 +1,23 @@
+alias: Main Bathroom Dehumidifier Off
+description: ""
+trigger:
+  - platform: template
+    value_template: >-
+      {{ (states.sensor.acurite_15182_ct_bath_h.state -
+      states.sensor.average_humidity.state) <
+      input_number.main_bathroom_dehumidifier_min_delta }}
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
+condition: []
+action:
+  - type: turn_off
+    device_id: 4bbf14db67657f22f149e563bc8e2b0d
+    entity_id: 3f5a11bf349d1a1ca109cfedfadf6527
+    domain: switch
+  - type: turn_off
+    device_id: 9a42216157a4697779238535b9f655f9
+    entity_id: 56ff874adba8da9c0b533aa74f230091
+    domain: switch
+mode: single

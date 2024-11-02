@@ -6,6 +6,55 @@ metadata:
   namespace: home-assistant
 data:
   automations.yaml: |
+    - alias: Main Bathroom Dehumidifier Off
+      description: ""
+      trigger:
+        - platform: template
+          value_template: >-
+            {{ (states.sensor.acurite_15182_ct_bath_h.state - states.sensor.average_humidity.state) < input_number.main_bathroom_dehumidifier_min_delta }}
+          for:
+            hours: 0
+            minutes: 1
+            seconds: 0
+      condition: []
+      action:
+        - type: turn_off
+          device_id: 4bbf14db67657f22f149e563bc8e2b0d
+          entity_id: 3f5a11bf349d1a1ca109cfedfadf6527
+          domain: switch
+        - type: turn_off
+          device_id: 9a42216157a4697779238535b9f655f9
+          entity_id: 56ff874adba8da9c0b533aa74f230091
+          domain: switch
+      mode: single
+    - alias: Main Bathroom Dehumidifier On
+      description: ""
+      trigger:
+        - platform: template
+          value_template: >-
+            {{ (states.sensor.acurite_15182_ct_bath_h.state - states.sensor.average_humidity.state) > input_number.main_bathroom_dehumidifier_max_delta }}
+          for:
+            hours: 0
+            minutes: 1
+            seconds: 0
+      condition: []
+      action:
+        - type: turn_on
+          device_id: 4bbf14db67657f22f149e563bc8e2b0d
+          entity_id: 3f5a11bf349d1a1ca109cfedfadf6527
+          domain: switch
+        - if:
+            - type: is_motion
+              condition: device
+              device_id: eb8c523f2bba8c1e78886b92ca19c3b7
+              entity_id: d1302ff56bd05d0cb96631d4471db6e0
+              domain: binary_sensor
+          then:
+            - type: turn_on
+              device_id: 9a42216157a4697779238535b9f655f9
+              entity_id: 56ff874adba8da9c0b533aa74f230091
+              domain: switch
+      mode: single
     - alias: CT Bath Lights Button
       description: ""
       trigger:
@@ -214,6 +263,55 @@ data:
           device_id: 751258a83b71dc6d1b8102dd75aedd3e
           entity_id: bc85422efd980d712fef050347614f1d
           domain: switch
+    - alias: Guest Bath Dehumidifier Off
+      description: ""
+      trigger:
+        - platform: template
+          value_template: >-
+            {{ (states.sensor.acurite_1194_guest_bathroom_h.state - states.sensor.average_humidity.state) < input_number.guest_humidifier_min_delta }}
+          for:
+            hours: 0
+            minutes: 1
+            seconds: 0
+      condition: []
+      action:
+        - type: turn_off
+          device_id: a35930e3830bebaf8077a5590665e858
+          entity_id: 60efa062c449539dfee60ad7b94e35cc
+          domain: switch
+        - type: turn_off
+          device_id: 82a624b807353a788f8805a8a11447ec
+          entity_id: 398a9a95e9e25f2f3555f0b123ea340e
+          domain: switch
+      mode: single
+    - alias: Guest Bath Dehumidifier On
+      description: ""
+      trigger:
+        - platform: template
+          value_template: >-
+            {{ (states.sensor.acurite_1194_guest_bathroom_h.state - states.sensor.average_humidity.state) > input_number.guest_humidifier_max_delta }}
+          for:
+            hours: 0
+            minutes: 1
+            seconds: 0
+      condition: []
+      action:
+        - type: turn_on
+          device_id: a35930e3830bebaf8077a5590665e858
+          entity_id: 60efa062c449539dfee60ad7b94e35cc
+          domain: switch
+        - if:
+            - type: is_motion
+              condition: device
+              device_id: 7614bffd513319c78ea30c606fce4577
+              entity_id: 4122434e3e8076342d34299df6472544
+              domain: binary_sensor
+          then:
+            - type: turn_on
+              device_id: 82a624b807353a788f8805a8a11447ec
+              entity_id: 398a9a95e9e25f2f3555f0b123ea340e
+              domain: switch
+      mode: single
     - alias: Guest Bath Lights Button
       description: ""
       trigger:
