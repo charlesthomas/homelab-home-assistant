@@ -1,15 +1,11 @@
 alias: Guest Bath Dehumidifier On
 description: ""
+mode: single
 trigger:
-  - platform: template
-    value_template: >-
-      {{ (states.sensor.acurite_1194_guest_bathroom_h.state -
-      states.sensor.average_humidity.state) >
-      input_number.guest_humidifier_max_delta }}
-    for:
-      hours: 0
-      minutes: 1
-      seconds: 0
+  - platform: state
+    entity_id:
+      - binary_sensor.guest_bath_humidity_high
+    to: "on"
 condition: []
 action:
   - type: turn_on
@@ -27,4 +23,3 @@ action:
         device_id: 82a624b807353a788f8805a8a11447ec
         entity_id: 398a9a95e9e25f2f3555f0b123ea340e
         domain: switch
-mode: single
