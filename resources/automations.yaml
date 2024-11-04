@@ -8,14 +8,12 @@ data:
   automations.yaml: |
     - alias: Main Bathroom Dehumidifier Off
       description: ""
+      mode: single
       trigger:
-        - platform: template
-          value_template: >-
-            {{ (states.sensor.acurite_15182_ct_bath_h.state - states.sensor.average_humidity.state) < input_number.main_bathroom_dehumidifier_min_delta }}
-          for:
-            hours: 0
-            minutes: 1
-            seconds: 0
+        - platform: state
+          entity_id:
+            - binary_sensor.main_bath_humidity_ok
+          to: "on"
       condition: []
       action:
         - type: turn_off
@@ -26,17 +24,14 @@ data:
           device_id: 9a42216157a4697779238535b9f655f9
           entity_id: 56ff874adba8da9c0b533aa74f230091
           domain: switch
-      mode: single
     - alias: Main Bathroom Dehumidifier On
       description: ""
+      mode: single
       trigger:
-        - platform: template
-          value_template: >-
-            {{ (states.sensor.acurite_15182_ct_bath_h.state - states.sensor.average_humidity.state) > input_number.main_bathroom_dehumidifier_max_delta }}
-          for:
-            hours: 0
-            minutes: 1
-            seconds: 0
+        - platform: state
+          entity_id:
+            - binary_sensor.main_bath_humidity_high
+          to: "on"
       condition: []
       action:
         - type: turn_on
@@ -54,7 +49,6 @@ data:
               device_id: 9a42216157a4697779238535b9f655f9
               entity_id: 56ff874adba8da9c0b533aa74f230091
               domain: switch
-      mode: single
     - alias: CT Bath Lights Button
       description: ""
       trigger:
