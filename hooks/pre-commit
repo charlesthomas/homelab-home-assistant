@@ -1,0 +1,5 @@
+#!/bin/bash
+if [ $(git status --porcelain automations/ | wc -l) -gt 0 ]; then
+    ./generate-automations.sh
+    git add resources/automations.yaml
+fi
