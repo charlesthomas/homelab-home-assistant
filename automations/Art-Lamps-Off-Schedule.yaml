@@ -1,0 +1,14 @@
+alias: Art Lamps Off Schedule
+description: ""
+trigger:
+  - platform: state
+    entity_id:
+      - schedule.art_lamp_schedule
+    from: "off"
+condition: []
+action:
+  - type: turn_off
+    device_id: 8b79e845f6a049c987bd0ce6a5701f0e
+    entity_id: 0e1066f63544d20985d05e4da841cd6e
+    domain: switch
+mode: single
