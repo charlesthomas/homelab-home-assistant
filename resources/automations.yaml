@@ -6,6 +6,34 @@ metadata:
   namespace: home-assistant
 data:
   automations.yaml: |
+    - alias: Art Lamps Off Schedule
+      description: ""
+      trigger:
+        - platform: state
+          entity_id:
+            - schedule.art_lamp_schedule
+          from: "off"
+      condition: []
+      action:
+        - type: turn_off
+          device_id: 8b79e845f6a049c987bd0ce6a5701f0e
+          entity_id: 0e1066f63544d20985d05e4da841cd6e
+          domain: switch
+      mode: single
+    - alias: Art Lamps On Schedule
+      description: ""
+      trigger:
+        - platform: state
+          entity_id:
+            - schedule.art_lamp_schedule
+          to: "on"
+      condition: []
+      action:
+        - type: turn_on
+          device_id: 8b79e845f6a049c987bd0ce6a5701f0e
+          entity_id: 0e1066f63544d20985d05e4da841cd6e
+          domain: switch
+      mode: single
     - alias: Main Bathroom Dehumidifier Off
       description: ""
       mode: single
@@ -271,10 +299,17 @@ data:
           device_id: a35930e3830bebaf8077a5590665e858
           entity_id: 60efa062c449539dfee60ad7b94e35cc
           domain: switch
-        - type: turn_off
-          device_id: 82a624b807353a788f8805a8a11447ec
-          entity_id: 398a9a95e9e25f2f3555f0b123ea340e
-          domain: switch
+        - if:
+            - type: no_motion
+              condition: device
+              device_id: 7614bffd513319c78ea30c606fce4577
+              entity_id: 4122434e3e8076342d34299df6472544
+              domain: binary_sensor
+          then:
+            - type: turn_off
+              device_id: 82a624b807353a788f8805a8a11447ec
+              entity_id: 398a9a95e9e25f2f3555f0b123ea340e
+              domain: switch
     - alias: Guest Bath Dehumidifier On
       description: ""
       mode: single
@@ -612,6 +647,43 @@ data:
           target:
             entity_id: input_boolean.movie_mode
           data: {}
+      mode: single
+    - alias: Pausing Living Room TV Turns Art Lamps On
+      description: ""
+      trigger:
+        - platform: device
+          device_id: 9740bbcab565039940bba000fd826456
+          domain: media_player
+          entity_id: 82ef8ecd276eac8b6467aab84b76b095
+          type: paused
+          for:
+            hours: 0
+            minutes: 14
+            seconds: 30
+      condition:
+        - condition: state
+          entity_id: schedule.art_lamp_schedule
+          state: "on"
+      action:
+        - type: turn_on
+          device_id: 8b79e845f6a049c987bd0ce6a5701f0e
+          entity_id: 0e1066f63544d20985d05e4da841cd6e
+          domain: switch
+      mode: single
+    - alias: Playing Living Room TV Turns Art Lamps Off
+      description: ""
+      trigger:
+        - platform: device
+          device_id: 9740bbcab565039940bba000fd826456
+          domain: media_player
+          entity_id: 82ef8ecd276eac8b6467aab84b76b095
+          type: playing
+      condition: []
+      action:
+        - type: turn_off
+          device_id: 8b79e845f6a049c987bd0ce6a5701f0e
+          entity_id: 0e1066f63544d20985d05e4da841cd6e
+          domain: switch
       mode: single
     - alias: Ryan BR Switch
       description: ""
