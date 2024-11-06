@@ -13,7 +13,7 @@ action:
     entity_id: 60efa062c449539dfee60ad7b94e35cc
     domain: switch
   - if:
-      - type: no_motion
+      - type: is_no_motion
         condition: device
         device_id: 7614bffd513319c78ea30c606fce4577
         entity_id: 4122434e3e8076342d34299df6472544

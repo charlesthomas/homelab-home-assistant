@@ -1,5 +1,6 @@
 alias: Pausing Living Room TV Turns Art Lamps On
 description: ""
+mode: single
 trigger:
   - platform: device
     device_id: 9740bbcab565039940bba000fd826456
@@ -10,6 +11,20 @@ trigger:
       hours: 0
       minutes: 14
       seconds: 30
+  - platform: device
+    device_id: 9740bbcab565039940bba000fd826456
+    domain: media_player
+    entity_id: 82ef8ecd276eac8b6467aab84b76b095
+    type: idle
+    for:
+      hours: 0
+      minutes: 14
+      seconds: 30
+  - platform: device
+    device_id: 9740bbcab565039940bba000fd826456
+    domain: media_player
+    entity_id: 82ef8ecd276eac8b6467aab84b76b095
+    type: turned_off
 condition:
   - condition: state
     entity_id: schedule.art_lamp_schedule
@@ -19,4 +34,3 @@ action:
     device_id: 8b79e845f6a049c987bd0ce6a5701f0e
     entity_id: 0e1066f63544d20985d05e4da841cd6e
     domain: switch
-mode: single
