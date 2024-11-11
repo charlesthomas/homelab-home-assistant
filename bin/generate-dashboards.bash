@@ -16,11 +16,11 @@ for dash in $(ls dashboards/*.yaml); do
   yq -i ".icon=\"mdi:${i}\"" tmp/$f.yaml
   yq -i ".filename=\"${f}.yaml\"" tmp/$f.yaml
 
-  yq -i ".dashboards.\"${f}-yaml\" = load(\"tmp/$f.yaml\")" tmp/lovelace.yaml
+  yq -i ".lovelace.dashboards.\"${f}-yaml\" = load(\"tmp/$f.yaml\")" tmp/lovelace.yaml
 
   yq -i ".data.\"${f}.yaml\" = load_str(\"$dash\")" tmp/configmap.yaml
 done
 
-yq ".data.\"dashboards.yaml\" = load_str(\"tmp/lovelace.yaml\")" tmp/configmap.yaml > resources/dashboards.yaml
+yq ".data.\"lovelace.yaml\" = load_str(\"tmp/lovelace.yaml\")" tmp/configmap.yaml > resources/dashboards.yaml
 
 rm -r tmp/

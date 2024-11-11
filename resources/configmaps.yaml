@@ -10,7 +10,7 @@ data:
 
     automation: !include automations.yaml
 
-    dashboards: !include dashboards.yaml
+    lovelace: !include lovelace.yaml
 
     homeassistant:
       name: 337

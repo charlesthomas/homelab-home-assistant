@@ -87,7 +87,7 @@ spec:
           command:
           - /bin/sh
           - -c
-          - 'cp -v /configuration-yaml/configuration.yaml /automations-yaml/automations.yaml /dashboards-yaml/dashboards.yaml /config/'
+          - 'cp -v /configuration-yaml/configuration.yaml /automations-yaml/automations.yaml /dashboards-yaml/*.yaml /config/'
           image: alpine:latest
           imagePullPolicy: IfNotPresent
           resources: {}
