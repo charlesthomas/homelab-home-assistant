@@ -47,12 +47,11 @@ data:
                 logarithmic_scale: false
                 hours_to_show: 168
   lovelace.yaml: |
-    lovelace:
-      mode: storage
-      dashboards:
-        test-yaml:
-          mode: yaml
-          show_in_sidebar: true
-          filename: test.yaml
-          icon: mdi:harddisk
-          title: Test
+    mode: storage
+    dashboards:
+      test-yaml:
+        mode: yaml
+        show_in_sidebar: true
+        filename: test.yaml
+        icon: mdi:harddisk
+        title: Test
