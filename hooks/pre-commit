@@ -5,6 +5,6 @@ if [ $(git status --porcelain automations/ | wc -l) -gt 0 ]; then
 fi
 
 if [ $(git status --porcelain dashboards/ | wc -l) -gt 0 ]; then
-    ./bin/generate-dashboards.sh
+    ./bin/generate-dashboards.bash
     git add resources/dashboards.yaml
 fi
