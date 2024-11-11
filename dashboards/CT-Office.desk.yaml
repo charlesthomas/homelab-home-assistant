@@ -1,0 +1,27 @@
+views:
+  - title: Home
+    cards:
+      - type: entities
+        entities:
+          - entity: light.ct_office_lights
+          - entity: switch.ct_office_fan
+          - entity: switch.ct_office_space_heater
+      - type: horizontal-stack
+        cards:
+          - type: entity
+            name: Temp
+            entity: sensor.ct_office_temperature
+          - type: entity
+            entity: sensor.ct_office_humidity
+            name: Humidity
+      - type: vertical-stack
+        cards:
+          - type: media-control
+            entity: media_player.office_tv
+          - type: horizontal-stack
+            cards:
+              - type: media-control
+                entity: media_player.chucks_office
+              - type: media-control
+                entity: media_player.chucks_office_2
+title: CT Office
