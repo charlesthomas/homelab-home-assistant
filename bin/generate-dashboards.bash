@@ -8,11 +8,12 @@ cp stubs/dashboards-lovelace.yaml tmp/lovelace.yaml
 
 for dash in $(ls dashboards/*.yaml); do
   u=$(basename $dash | cut -f 1 -d .)
-  f=$(echo $f | tr '[:upper:]' '[:lower:]')
+  t=$(echo $u | tr - ' ')
+  f=$(echo $u | tr '[:upper:]' '[:lower:]')
   i=$(basename $dash | cut -f 2 -d .)
 
   cp stubs/dashboard-record.yaml tmp/$f.yaml
-  yq -i ".title=\"${u}\"" tmp/$f.yaml
+  yq -i ".title=\"${t}\"" tmp/$f.yaml
   yq -i ".icon=\"mdi:${i}\"" tmp/$f.yaml
   yq -i ".filename=\"${f}.yaml\"" tmp/$f.yaml
 

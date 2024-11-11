@@ -5,7 +5,7 @@ metadata:
   name: dashboards
   namespace: home-assistant
 data:
-  test.yaml: |
+  storage-space.yaml: |
     views:
       - title: Home
         cards:
@@ -49,9 +49,9 @@ data:
   lovelace.yaml: |
     mode: storage
     dashboards:
-      test-yaml:
+      storage-space-yaml:
         mode: yaml
         show_in_sidebar: true
-        filename: test.yaml
+        filename: storage-space.yaml
         icon: mdi:harddisk
-        title: Test
+        title: Storage Space
