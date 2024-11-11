@@ -1,6 +1,6 @@
 _commit: v1.12.1-6-gbf0c0a5
 _src_path: /Users/crthomas/code/charlesthomas/homelab-template
-additionalResources: automations.yaml
+additionalResources: automations.yaml,dashboards.yaml
 backups: false
 helm: false
 homepageDescription: Home Automator

@@ -3,3 +3,8 @@ if [ $(git status --porcelain automations/ | wc -l) -gt 0 ]; then
     ./generate-automations.sh
     git add resources/automations.yaml
 fi
+
+if [ $(git status --porcelain dashboards/ | wc -l) -gt 0 ]; then
+    ./bin/generate-dashboards.sh
+    git add resources/dashboards.yaml
+fi

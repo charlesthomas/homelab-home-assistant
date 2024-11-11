@@ -10,6 +10,8 @@ data:
 
     automation: !include automations.yaml
 
+    dashboards: !include dashboards.yaml
+
     homeassistant:
       name: 337
       latitude: !env_var LATITUDE
@@ -75,5 +77,3 @@ data:
           "light.guest_bath_center",
           "light.guest_bath_right"
         ]
-
-

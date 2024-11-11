@@ -66,25 +66,28 @@ spec:
             timeoutSeconds: 1
             periodSeconds: 5
           volumeMounts:
-          - mountPath: /config
-            name: config
+            - mountPath: /config
+              name: config
       volumes:
-      - name: config
-        persistentVolumeClaim:
-          claimName: home-assistant
-      - configMap:
-          name: configuration
-        name: configuration
-      - configMap:
-          name: automations
-        name: automations
+        - name: config
+          persistentVolumeClaim:
+            claimName: home-assistant
+        - name: configuration
+          configMap:
+            name: configuration
+        - name: automations
+          configMap:
+            name: automations
+        - name: dashboards
+          configMap:
+            name: dashboards
       hostNetwork: true
       initContainers:
         - name: copy
           command:
           - /bin/sh
           - -c
-          - ' cp -v /configuration-yaml/configuration.yaml /automations-yaml/automations.yaml /config/'
+          - 'cp -v /configuration-yaml/configuration.yaml /automations-yaml/automations.yaml /dashboards-yaml/dashboards.yaml /config/'
           image: alpine:latest
           imagePullPolicy: IfNotPresent
           resources: {}
@@ -95,3 +98,5 @@ spec:
             name: configuration
           - mountPath: /automations-yaml/
             name: automations
+          - mountPath: /dashboards-yaml/
+            name: dashboards

@@ -12,6 +12,7 @@ commonLabels:
 resources:
 - resources/automations.yaml
 - resources/configmaps.yaml
+- resources/dashboards.yaml
 - resources/deployments.yaml
 - resources/external-secrets.yaml
 - resources/ingresses.yaml

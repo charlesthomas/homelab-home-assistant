@@ -1,0 +1,40 @@
+views:
+  - title: Home
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: entity
+            entity: input_datetime.storage_last_update
+            name: Last Update
+            unit: ' '
+          - type: gauge
+            entity: input_number.seedbox
+            max: 100
+            severity:
+              green: 0
+              yellow: 75
+              red: 90
+            needle: false
+          - type: gauge
+            entity: input_number.nas01
+            max: 100
+            severity:
+              green: 0
+              yellow: 75
+              red: 90
+            needle: false
+          - type: gauge
+            entity: input_number.nas02
+            max: 100
+            severity:
+              green: 0
+              yellow: 75
+              red: 90
+            needle: false
+          - type: history-graph
+            entities:
+              - entity: input_number.seedbox
+              - entity: input_number.nas01
+              - entity: input_number.nas02
+            logarithmic_scale: false
+            hours_to_show: 168
