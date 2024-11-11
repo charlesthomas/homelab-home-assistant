@@ -7,19 +7,11 @@ trigger:
     domain: media_player
     entity_id: 82ef8ecd276eac8b6467aab84b76b095
     type: paused
-    for:
-      hours: 0
-      minutes: 14
-      seconds: 30
   - platform: device
     device_id: 9740bbcab565039940bba000fd826456
     domain: media_player
     entity_id: 82ef8ecd276eac8b6467aab84b76b095
     type: idle
-    for:
-      hours: 0
-      minutes: 14
-      seconds: 30
   - platform: device
     device_id: 9740bbcab565039940bba000fd826456
     domain: media_player
