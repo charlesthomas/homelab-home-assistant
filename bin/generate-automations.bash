@@ -11,15 +11,17 @@
 # all you should need to do this is bash and yq
 # https://github.com/mikefarah/yq
 
+mkdir -p tmp/
+
 cmd="yq -n '["
 sep=
 for yaml in $(ls automations/*.yaml); do
     cmd="${cmd}${sep} load(\"${yaml}\")"
     sep=,
 done
-cmd="${cmd}]' > .list.yaml"
+cmd="${cmd}]' > tmp/list.yaml"
 
 eval $cmd
 
-yq ".data.\"automations.yaml\" = load_str(\".list.yaml\")" automations.partial.yaml > resources/automations.yaml
-rm .list.yaml
+yq ".data.\"automations.yaml\" = load_str(\"tmp/list.yaml\")" stubs/automations-configmap.yaml > resources/automations.yaml
+rm tmp/list.yaml

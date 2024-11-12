@@ -1,6 +1,6 @@
 #!/bin/bash
 if [ $(git status --porcelain automations/ | wc -l) -gt 0 ]; then
-    ./generate-automations.sh
+    ./bin/generate-automations.bash
     git add resources/automations.yaml
 fi
 
