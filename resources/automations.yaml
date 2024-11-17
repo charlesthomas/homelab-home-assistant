@@ -568,9 +568,9 @@ data:
       description: ""
       trigger:
         - platform: device
-          device_id: 9740bbcab565039940bba000fd826456
+          device_id: 9b8d6246ca553e5e0ef66221c911e516
           domain: media_player
-          entity_id: 82ef8ecd276eac8b6467aab84b76b095
+          entity_id: d086e0de65e1090f565195bb4fa2ebf4
           type: paused
           for:
             hours: 0
@@ -606,9 +606,9 @@ data:
       description: ""
       trigger:
         - platform: device
-          device_id: 9740bbcab565039940bba000fd826456
+          device_id: 9b8d6246ca553e5e0ef66221c911e516
           domain: media_player
-          entity_id: 82ef8ecd276eac8b6467aab84b76b095
+          entity_id: d086e0de65e1090f565195bb4fa2ebf4
           type: playing
       condition:
         - condition: state
@@ -653,23 +653,23 @@ data:
       mode: single
       trigger:
         - platform: device
-          device_id: 9740bbcab565039940bba000fd826456
+          device_id: 9b8d6246ca553e5e0ef66221c911e516
           domain: media_player
-          entity_id: 82ef8ecd276eac8b6467aab84b76b095
+          entity_id: d086e0de65e1090f565195bb4fa2ebf4
           type: paused
           for:
             hours: 0
             minutes: 0
             seconds: 15
         - platform: device
-          device_id: 9740bbcab565039940bba000fd826456
+          device_id: 9b8d6246ca553e5e0ef66221c911e516
           domain: media_player
-          entity_id: 82ef8ecd276eac8b6467aab84b76b095
+          entity_id: d086e0de65e1090f565195bb4fa2ebf4
           type: idle
         - platform: device
-          device_id: 9740bbcab565039940bba000fd826456
+          device_id: 9b8d6246ca553e5e0ef66221c911e516
           domain: media_player
-          entity_id: 82ef8ecd276eac8b6467aab84b76b095
+          entity_id: d086e0de65e1090f565195bb4fa2ebf4
           type: turned_off
       condition:
         - condition: state
@@ -684,9 +684,9 @@ data:
       description: ""
       trigger:
         - platform: device
-          device_id: 9740bbcab565039940bba000fd826456
+          device_id: 9b8d6246ca553e5e0ef66221c911e516
           domain: media_player
-          entity_id: 82ef8ecd276eac8b6467aab84b76b095
+          entity_id: d086e0de65e1090f565195bb4fa2ebf4
           type: playing
       condition: []
       action:
