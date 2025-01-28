@@ -10,6 +10,10 @@ trigger:
       hours: 0
       minutes: 0
       seconds: 30
+condition:
+  - condition: state
+    entity_id: input_boolean.kitchen_automation
+    state: "on"
 action:
   - type: turn_off
     device_id: 64cb39541183d46fd5d8f061f93a02e9

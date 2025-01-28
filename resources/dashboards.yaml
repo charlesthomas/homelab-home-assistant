@@ -224,14 +224,19 @@ data:
                 entities:
                   - entity: input_datetime.weekday_coffee
                   - entity: input_datetime.weekend_coffee
-          - show_name: true
-            show_icon: true
-            type: button
-            tap_action:
-              action: toggle
-            icon: mdi:track-light
-            name: Lights
-            entity: switch.kitchen_lights
+          - type: vertical-stack
+            cards:
+              - show_name: true
+                show_icon: true
+                type: button
+                tap_action:
+                  action: toggle
+                icon: mdi:track-light
+                name: Lights
+                entity: switch.kitchen_lights
+              - type: entities
+                entities:
+                  - entity: input_boolean.kitchen_automation
           - type: media-control
             entity: media_player.kitchen_homepod
           - type: horizontal-stack

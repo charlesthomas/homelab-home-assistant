@@ -468,6 +468,10 @@ data:
             hours: 0
             minutes: 0
             seconds: 30
+      condition:
+        - condition: state
+          entity_id: input_boolean.kitchen_automation
+          state: "on"
       action:
         - type: turn_off
           device_id: 64cb39541183d46fd5d8f061f93a02e9
@@ -481,6 +485,10 @@ data:
           device_id: b1cf547c46b0b9fa17211b2685d5e5cf
           entity_id: 40e0cb4c514ef2e80bd49f6cd905981b
           domain: binary_sensor
+      condition:
+        - condition: state
+          entity_id: input_boolean.kitchen_automation
+          state: "on"
       action:
         - type: turn_on
           device_id: 64cb39541183d46fd5d8f061f93a02e9
