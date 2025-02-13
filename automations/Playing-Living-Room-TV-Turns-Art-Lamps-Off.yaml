@@ -1,11 +1,10 @@
 alias: Playing Living Room TV Turns Art Lamps Off
 description: ""
 trigger:
-  - platform: device
-    device_id: 9b8d6246ca553e5e0ef66221c911e516
-    domain: media_player
-    entity_id: d086e0de65e1090f565195bb4fa2ebf4
-    type: playing
+  - platform: state
+    entity_id:
+      - binary_sensor.living_room_tv_playing
+    to: "on"
 condition: []
 action:
   - type: turn_off
