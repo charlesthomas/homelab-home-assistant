@@ -6,16 +6,15 @@ trigger:
     entity_id:
       - binary_sensor.living_room_tv_playing
     to: "off"
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 15
 condition:
   - condition: state
     entity_id: schedule.art_lamp_schedule
     state: "on"
 action:
-  - delay:
-      hours: 0
-      minutes: 0
-      seconds: 15
-      milliseconds: 0
   - type: turn_on
     device_id: 8b79e845f6a049c987bd0ce6a5701f0e
     entity_id: 0e1066f63544d20985d05e4da841cd6e
