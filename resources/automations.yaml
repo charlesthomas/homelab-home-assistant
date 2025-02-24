@@ -714,8 +714,8 @@ data:
           to: "off"
           for:
             hours: 0
-            minutes: 0
-            seconds: 15
+            minutes: 1
+            seconds: 0
       condition:
         - condition: state
           entity_id: schedule.art_lamp_schedule
