@@ -268,6 +268,14 @@ data:
                   action: toggle
                 entity: switch.rear_speakers
                 show_state: false
+              - show_name: true
+                show_icon: true
+                type: button
+                tap_action:
+                  action: toggle
+                entity: switch.pi_hole
+                icon: ''
+                show_state: false
           - type: light
             entity: light.living_room_lamps
             hold_action:
