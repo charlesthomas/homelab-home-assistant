@@ -9,6 +9,11 @@ commonLabels:
   app.kubernetes.io/name: home-assistant
   app.kubernetes.io/instance: home-assistant
 
+images:
+  - name: home-assistant
+    newName: ghcr.io/home-assistant/home-assistant
+    newTag: 2023.12.1
+
 resources:
 - resources/automations.yaml
 - resources/configmaps.yaml
