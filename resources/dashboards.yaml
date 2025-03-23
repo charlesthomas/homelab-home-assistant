@@ -348,13 +348,6 @@ data:
                   yellow: 75
                   red: 90
                 needle: false
-              - type: history-graph
-                entities:
-                  - entity: input_number.seedbox
-                  - entity: input_number.nas01
-                  - entity: input_number.nas02
-                logarithmic_scale: false
-                hours_to_show: 168
   lovelace.yaml: |
     mode: storage
     dashboards:
