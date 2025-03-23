@@ -17,7 +17,7 @@ data:
       latitude: !env_var LATITUDE
       longitude: !env_var LONGITUDE
       elevation: 709
-      unit_system: imperial
+      unit_system: us_customary
       time_zone: America/Detroit
 
     http:
