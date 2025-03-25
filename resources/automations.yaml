@@ -870,3 +870,33 @@ data:
           entity_id: 1e65d530659a5e90b55abc710dbbc044
           domain: switch
       mode: single
+    - alias: Turning Off pihole Turns Off pihole2
+      description: ""
+      triggers:
+        - type: turned_off
+          device_id: e01b3e4446b584a04f2addf7c3bbf4d1
+          entity_id: 548c50f60d9cbe6793900f3be2671a28
+          domain: switch
+          trigger: device
+      conditions: []
+      actions:
+        - type: turn_off
+          device_id: 5798b540e48d080675bb3d6330dfe672
+          entity_id: 62cbb1b4ac6edbb454c1fcbecca3b364
+          domain: switch
+      mode: single
+    - alias: Turning On pihole Turns On pihole2
+      description: ""
+      triggers:
+        - type: turned_on
+          device_id: e01b3e4446b584a04f2addf7c3bbf4d1
+          entity_id: 548c50f60d9cbe6793900f3be2671a28
+          domain: switch
+          trigger: device
+      conditions: []
+      actions:
+        - type: turn_on
+          device_id: 5798b540e48d080675bb3d6330dfe672
+          entity_id: 62cbb1b4ac6edbb454c1fcbecca3b364
+          domain: switch
+      mode: single
