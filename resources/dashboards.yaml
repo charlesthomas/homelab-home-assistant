@@ -5,6 +5,70 @@ metadata:
   name: dashboards
   namespace: home-assistant
 data:
+  climate.yaml: |
+    views:
+      - title: Home
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: horizontal-stack
+                cards:
+                  - type: gauge
+                    name: Average
+                    entity: sensor.average_humidity
+                  - type: gauge
+                    entity: sensor.acurite_1194_guest_bathroom_h
+                    name: Guest Bathroom
+                  - type: gauge
+                    entity: sensor.acurite_15182_ct_bath_h
+                    name: Main Bathroom
+              - type: entities
+                entities:
+                  - entity: sensor.outside_8257_h
+                  - entity: sensor.average_humidity
+                  - entity: sensor.ct_office_humidity
+                  - entity: sensor.acurite_11300_laundry_room_h
+                  - entity: sensor.acurite_1194_guest_bathroom_h
+                  - entity: sensor.acurite_15182_ct_bath_h
+                  - entity: sensor.kitchen_sensor_humidity
+                  - entity: sensor.dining_room_humidity
+              - type: history-graph
+                entities:
+                  - entity: sensor.acurite_15182_ct_bath_h
+                  - entity: sensor.acurite_1194_guest_bathroom_h
+                  - entity: sensor.average_humidity
+          - type: vertical-stack
+            cards:
+              - type: horizontal-stack
+                cards:
+                  - type: entity
+                    entity: sensor.outside_8257_t
+                    name: Outside
+                  - type: entity
+                    name: 1st Floor
+                    entity: sensor.acurite_15182_ct_bath_t
+                  - type: entity
+                    name: 2nd Floor
+                    entity: sensor.ct_office_temperature
+              - type: entities
+                entities:
+                  - entity: sensor.outside_8257_t
+                  - entity: sensor.kitchen_temperature
+                  - entity: sensor.dining_room_temperature
+                  - entity: sensor.acurite_11300_laundry_room_t
+                  - entity: sensor.acurite_1194_guest_bathroom_t
+                  - entity: sensor.acurite_15182_ct_bath_t
+                  - entity: sensor.ct_office_temperature
+              - type: history-graph
+                entities:
+                  - entity: sensor.ct_office_temperature
+                  - entity: sensor.kitchen_sensor_temperature
+                hours_to_show: 24
+              - type: history-graph
+                entities:
+                  - entity: sensor.outside_8257_t
+                hours_to_show: 168
+    title: Climate
   ct-bedroom.yaml: |
     views:
       - title: Home
@@ -96,70 +160,6 @@ data:
                   - type: media-control
                     entity: media_player.chucks_office_2
     title: CT Office
-  climate.yaml: |
-    views:
-      - title: Home
-        cards:
-          - type: vertical-stack
-            cards:
-              - type: horizontal-stack
-                cards:
-                  - type: gauge
-                    name: Average
-                    entity: sensor.average_humidity
-                  - type: gauge
-                    entity: sensor.acurite_1194_guest_bathroom_h
-                    name: Guest Bathroom
-                  - type: gauge
-                    entity: sensor.acurite_15182_ct_bath_h
-                    name: Main Bathroom
-              - type: entities
-                entities:
-                  - entity: sensor.outside_8257_h
-                  - entity: sensor.average_humidity
-                  - entity: sensor.ct_office_humidity
-                  - entity: sensor.acurite_11300_laundry_room_h
-                  - entity: sensor.acurite_1194_guest_bathroom_h
-                  - entity: sensor.acurite_15182_ct_bath_h
-                  - entity: sensor.kitchen_sensor_humidity
-                  - entity: sensor.dining_room_humidity
-              - type: history-graph
-                entities:
-                  - entity: sensor.acurite_15182_ct_bath_h
-                  - entity: sensor.acurite_1194_guest_bathroom_h
-                  - entity: sensor.average_humidity
-          - type: vertical-stack
-            cards:
-              - type: horizontal-stack
-                cards:
-                  - type: entity
-                    entity: sensor.outside_8257_t
-                    name: Outside
-                  - type: entity
-                    name: 1st Floor
-                    entity: sensor.acurite_15182_ct_bath_t
-                  - type: entity
-                    name: 2nd Floor
-                    entity: sensor.ct_office_temperature
-              - type: entities
-                entities:
-                  - entity: sensor.outside_8257_t
-                  - entity: sensor.kitchen_temperature
-                  - entity: sensor.dining_room_temperature
-                  - entity: sensor.acurite_11300_laundry_room_t
-                  - entity: sensor.acurite_1194_guest_bathroom_t
-                  - entity: sensor.acurite_15182_ct_bath_t
-                  - entity: sensor.ct_office_temperature
-              - type: history-graph
-                entities:
-                  - entity: sensor.ct_office_temperature
-                  - entity: sensor.kitchen_sensor_temperature
-                hours_to_show: 24
-              - type: history-graph
-                entities:
-                  - entity: sensor.outside_8257_t
-                hours_to_show: 168
-    title: Climate
   guest-bathroom.yaml: |
     views:
       - title: Home
@@ -220,10 +220,9 @@ data:
                   action: toggle
                 entity: switch.coffee_pot
                 icon: mdi:coffee-maker
-              - type: entities
-                entities:
-                  - entity: input_datetime.weekday_coffee
-                  - entity: input_datetime.weekend_coffee
+              - type: entity
+                entity: schedule.coffee
+                name: Schedule
           - type: vertical-stack
             cards:
               - show_name: true
@@ -351,6 +350,12 @@ data:
   lovelace.yaml: |
     mode: storage
     dashboards:
+      climate-yaml:
+        mode: yaml
+        show_in_sidebar: true
+        filename: climate.yaml
+        icon: mdi:sun-thermometer
+        title: Climate
       ct-bedroom-yaml:
         mode: yaml
         show_in_sidebar: true
@@ -363,12 +368,6 @@ data:
         filename: ct-office.yaml
         icon: mdi:desk
         title: CT Office
-      climate-yaml:
-        mode: yaml
-        show_in_sidebar: true
-        filename: climate.yaml
-        icon: mdi:sun-thermometer
-        title: Climate
       guest-bathroom-yaml:
         mode: yaml
         show_in_sidebar: true

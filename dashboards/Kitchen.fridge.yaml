@@ -17,10 +17,9 @@ views:
               action: toggle
             entity: switch.coffee_pot
             icon: mdi:coffee-maker
-          - type: entities
-            entities:
-              - entity: input_datetime.weekday_coffee
-              - entity: input_datetime.weekend_coffee
+          - type: entity
+            entity: schedule.coffee
+            name: Schedule
       - type: vertical-stack
         cards:
           - show_name: true

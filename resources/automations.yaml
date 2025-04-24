@@ -34,6 +34,59 @@ data:
           entity_id: 0e1066f63544d20985d05e4da841cd6e
           domain: switch
       mode: single
+    - alias: Chandelier Off Speakers On
+      description: ""
+      trigger:
+        - platform: device
+          type: turned_off
+          device_id: 9b618ba4de7b483cfc40ab2a906edfe6
+          entity_id: 47130368d748dee4063117a1cff1a696
+          domain: switch
+      condition: []
+      action:
+        - type: turn_on
+          device_id: bdf7c3cd7590d89e31f8eb54753a6de6
+          entity_id: c24f570a5d97fec3e38c53dcc3a8e248
+          domain: switch
+      mode: single
+    - alias: Chandelier On Speakers Off
+      description: ""
+      trigger:
+        - platform: device
+          type: turned_on
+          device_id: 9b618ba4de7b483cfc40ab2a906edfe6
+          entity_id: 47130368d748dee4063117a1cff1a696
+          domain: switch
+      condition: []
+      action:
+        - type: turn_off
+          device_id: bdf7c3cd7590d89e31f8eb54753a6de6
+          entity_id: c24f570a5d97fec3e38c53dcc3a8e248
+          domain: switch
+      mode: single
+    - alias: Coffee Pot Schedule
+      description: ""
+      triggers:
+        - trigger: state
+          entity_id:
+            - schedule.coffee
+          to: "on"
+      conditions: []
+      actions:
+        - type: turn_on
+          device_id: 751258a83b71dc6d1b8102dd75aedd3e
+          entity_id: bc85422efd980d712fef050347614f1d
+          domain: switch
+        - delay:
+            hours: 0
+            minutes: 15
+            seconds: 0
+            milliseconds: 0
+        - type: turn_off
+          device_id: 751258a83b71dc6d1b8102dd75aedd3e
+          entity_id: bc85422efd980d712fef050347614f1d
+          domain: switch
+      mode: single
     - alias: Main Bathroom Dehumidifier Off
       description: ""
       mode: single
@@ -222,89 +275,6 @@ data:
           device_id: 5a1a3082e0be230fd3943b7a58675660
           entity_id: 6ca0bbf3d632bf32c6b1002559d06f5c
           domain: light
-    - alias: Chandelier Off Speakers On
-      description: ""
-      trigger:
-        - platform: device
-          type: turned_off
-          device_id: 9b618ba4de7b483cfc40ab2a906edfe6
-          entity_id: 47130368d748dee4063117a1cff1a696
-          domain: switch
-      condition: []
-      action:
-        - type: turn_on
-          device_id: bdf7c3cd7590d89e31f8eb54753a6de6
-          entity_id: c24f570a5d97fec3e38c53dcc3a8e248
-          domain: switch
-      mode: single
-    - alias: Chandelier On Speakers Off
-      description: ""
-      trigger:
-        - platform: device
-          type: turned_on
-          device_id: 9b618ba4de7b483cfc40ab2a906edfe6
-          entity_id: 47130368d748dee4063117a1cff1a696
-          domain: switch
-      condition: []
-      action:
-        - type: turn_off
-          device_id: bdf7c3cd7590d89e31f8eb54753a6de6
-          entity_id: c24f570a5d97fec3e38c53dcc3a8e248
-          domain: switch
-      mode: single
-    - alias: Coffee Pot Weekdays
-      description: ""
-      mode: single
-      trigger:
-        - platform: time
-          at: input_datetime.weekday_coffee
-      condition:
-        - condition: time
-          weekday:
-            - mon
-            - tue
-            - wed
-            - thu
-            - fri
-      action:
-        - type: turn_on
-          device_id: 751258a83b71dc6d1b8102dd75aedd3e
-          entity_id: bc85422efd980d712fef050347614f1d
-          domain: switch
-        - delay:
-            hours: 0
-            minutes: 15
-            seconds: 0
-            milliseconds: 0
-        - type: turn_off
-          device_id: 751258a83b71dc6d1b8102dd75aedd3e
-          entity_id: bc85422efd980d712fef050347614f1d
-          domain: switch
-    - alias: Coffee Pot Weekends
-      description: ""
-      mode: single
-      trigger:
-        - platform: time
-          at: input_datetime.weekend_coffee
-      condition:
-        - condition: time
-          weekday:
-            - sat
-            - sun
-      action:
-        - type: turn_on
-          device_id: 751258a83b71dc6d1b8102dd75aedd3e
-          entity_id: bc85422efd980d712fef050347614f1d
-          domain: switch
-        - delay:
-            hours: 0
-            minutes: 15
-            seconds: 0
-            milliseconds: 0
-        - type: turn_off
-          device_id: 751258a83b71dc6d1b8102dd75aedd3e
-          entity_id: bc85422efd980d712fef050347614f1d
-          domain: switch
     - alias: Guest Bath Dehumidifier Off
       description: ""
       mode: single
@@ -739,6 +709,29 @@ data:
           entity_id: 0e1066f63544d20985d05e4da841cd6e
           domain: switch
       mode: single
+    - alias: Rotate Avengers
+      description: ""
+      trigger:
+        - platform: time
+          at: "08:00:00"
+        - platform: time
+          at: "17:00:00"
+      condition: []
+      action:
+        - type: turn_on
+          device_id: b32576c144d5680405b2d822a549e136
+          entity_id: 1e65d530659a5e90b55abc710dbbc044
+          domain: switch
+        - delay:
+            hours: 0
+            minutes: 0
+            seconds: 6
+            milliseconds: 0
+        - type: turn_off
+          device_id: b32576c144d5680405b2d822a549e136
+          entity_id: 1e65d530659a5e90b55abc710dbbc044
+          domain: switch
+      mode: single
     - alias: Ryan BR Switch
       description: ""
       use_blueprint:
@@ -847,29 +840,6 @@ data:
                   device_id: e2b83384489c13db454469dcba18f67e
                   entity_id: dfee3ba08fac6d83e2221ff0013cb5a2
                   domain: light
-    - alias: Rotate Avengers
-      description: ""
-      trigger:
-        - platform: time
-          at: "08:00:00"
-        - platform: time
-          at: "17:00:00"
-      condition: []
-      action:
-        - type: turn_on
-          device_id: b32576c144d5680405b2d822a549e136
-          entity_id: 1e65d530659a5e90b55abc710dbbc044
-          domain: switch
-        - delay:
-            hours: 0
-            minutes: 0
-            seconds: 6
-            milliseconds: 0
-        - type: turn_off
-          device_id: b32576c144d5680405b2d822a549e136
-          entity_id: 1e65d530659a5e90b55abc710dbbc044
-          domain: switch
-      mode: single
     - alias: Turning Off pihole Turns Off pihole2
       description: ""
       triggers:
