@@ -5,7 +5,10 @@ trigger:
     entity_id:
       - schedule.art_lamp_schedule
     to: "on"
-condition: []
+conditions:
+  - condition: state
+    entity_id: binary_sensor.living_room_tv_playing
+    state: "off"
 action:
   - type: turn_on
     device_id: 8b79e845f6a049c987bd0ce6a5701f0e

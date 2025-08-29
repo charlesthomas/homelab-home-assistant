@@ -4,7 +4,7 @@ trigger:
   - platform: state
     entity_id:
       - schedule.art_lamp_schedule
-    from: "off"
+    to: "off"
 condition: []
 action:
   - type: turn_off
