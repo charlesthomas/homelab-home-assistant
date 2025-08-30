@@ -116,7 +116,10 @@ data:
           entity_id:
             - binary_sensor.main_bath_humidity_high
           to: "on"
-      condition: []
+      conditions:
+        - condition: state
+          entity_id: switch.adaptive_lighting_sleep_mode_ct_bedroom
+          state: "off"
       action:
         - type: turn_on
           device_id: 4bbf14db67657f22f149e563bc8e2b0d
