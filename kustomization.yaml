@@ -12,7 +12,7 @@ commonLabels:
 images:
   - name: home-assistant
     newName: ghcr.io/home-assistant/home-assistant
-    newTag: 2025.9.4
+    newTag: 2025.10.4
 
 resources:
 - resources/automations.yaml
