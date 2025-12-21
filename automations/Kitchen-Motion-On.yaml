@@ -3,8 +3,8 @@ description: ""
 trigger:
   - type: motion
     platform: device
-    device_id: b1cf547c46b0b9fa17211b2685d5e5cf
-    entity_id: 40e0cb4c514ef2e80bd49f6cd905981b
+    device_id: 016922535828fe99112d2185c9e6d266
+    entity_id: b9f661d5f04e35dc33e80fce29908f2c
     domain: binary_sensor
 condition:
   - condition: state
