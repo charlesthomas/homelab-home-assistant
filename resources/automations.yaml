@@ -383,8 +383,8 @@ data:
       trigger:
         - type: motion
           platform: device
-          device_id: 7614bffd513319c78ea30c606fce4577
-          entity_id: 4122434e3e8076342d34299df6472544
+          device_id: b1cf547c46b0b9fa17211b2685d5e5cf
+          entity_id: 40e0cb4c514ef2e80bd49f6cd905981b
           domain: binary_sensor
       condition: []
       action:
