@@ -6,6 +6,7 @@ views:
           - type: entities
             entities:
               - entity: light.ct_br_lamp
+              - entity: switch.ct_bedroom_white_noise_machine
               - entity: switch.ct_br_fan
               - entity: switch.adaptive_lighting_sleep_mode_ct_bedroom
             title: Bedroom
