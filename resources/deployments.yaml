@@ -67,36 +67,15 @@ spec:
             periodSeconds: 5
           volumeMounts:
             - mountPath: /config
-              name: config
+              name: config-pvc
+            - mountPath: /config/configuration.yaml
+              name: config-yaml
+              subPath: configuration.yaml
       volumes:
-        - name: config
+        - name: config-pvc
           persistentVolumeClaim:
             claimName: home-assistant
-        - name: configuration
+        - name: config-yaml
           configMap:
-            name: configuration
-        - name: automations
-          configMap:
-            name: automations
-        - name: dashboards
-          configMap:
-            name: dashboards
+            name: config-yaml
       hostNetwork: true
-      initContainers:
-        - name: copy
-          command:
-          - /bin/sh
-          - -c
-          - 'cp -v /configuration-yaml/configuration.yaml /automations-yaml/automations.yaml /dashboards-yaml/*.yaml /config/'
-          image: alpine:latest
-          imagePullPolicy: IfNotPresent
-          resources: {}
-          volumeMounts:
-          - mountPath: /config
-            name: config
-          - mountPath: /configuration-yaml/
-            name: configuration
-          - mountPath: /automations-yaml/
-            name: automations
-          - mountPath: /dashboards-yaml/
-            name: dashboards
