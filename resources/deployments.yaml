@@ -77,5 +77,5 @@ spec:
             claimName: home-assistant
         - name: config-yaml
           configMap:
-            name: config-yaml
+            name: configuration
       hostNetwork: true
