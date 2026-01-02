@@ -12,6 +12,8 @@ data:
 
     lovelace: !include lovelace.yaml
 
+    scenes: !include scenes.yaml
+
     homeassistant:
       name: 337
       latitude: !env_var LATITUDE
