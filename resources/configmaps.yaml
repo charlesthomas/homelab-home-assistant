@@ -10,8 +10,6 @@ data:
 
     automation: !include automations.yaml
 
-    lovelace: !include lovelace.yaml
-
     scene: !include scenes.yaml
 
     homeassistant:
