@@ -48,7 +48,10 @@ data:
           "light.lr_left_front",
           "light.lr_left_rear",
           "light.lr_right_front",
-          "light.lr_right_rear"
+          "light.lr_right_rear",
+          "light.tv_left",
+          "light.tv_right",
+          "light.tv_strip"
         ]
       - name: "ct bedroom"
         min_brightness: 100
