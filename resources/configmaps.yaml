@@ -20,12 +20,6 @@ data:
       unit_system: us_customary
       time_zone: America/Detroit
 
-    http:
-      use_x_forwarded_for: true
-      trusted_proxies:
-      - 192.168.1.0/24
-      - 10.42.0.0/16
-
     adaptive_lighting:
       - name: "ct office"
         min_brightness: 100
