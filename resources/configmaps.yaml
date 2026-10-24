@@ -31,7 +31,7 @@ data:
           "light.ct_office_lamp_right",
         ]
       - name: "living room"
-        min_brightness: 100
+        min_brightness: 50
         max_brightness: 100
         min_color_temp: 2500
         max_color_temp: 6500
